@@ -32,9 +32,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj",
-      "projectName": "CVETool.Interfaces",
-      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj",
+      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj",
+      "projectName": "CVETool.BL.Interfaces",
+      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj",
       "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\obj\\",
       "projectStyle": "PackageReference",

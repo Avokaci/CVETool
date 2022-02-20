@@ -28,11 +28,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj"
+              },
               "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj": {
                 "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj"
               },
-              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj": {
-                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj"
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj"
               }
             }
           }
@@ -129,6 +132,131 @@
         }
       }
     },
+    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL.Interfaces\\CVETool.DAL.Interfaces.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL.Interfaces\\CVETool.DAL.Interfaces.csproj",
+        "projectName": "CVETool.DAL.Interfaces",
+        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL.Interfaces\\CVETool.DAL.Interfaces.csproj",
+        "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL.Interfaces\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\burak_y46me01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
+        "projectName": "CVETool.DAL",
+        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
+        "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\burak_y46me01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL.Interfaces\\CVETool.DAL.Interfaces.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL.Interfaces\\CVETool.DAL.Interfaces.csproj"
+              },
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -183,12 +311,12 @@
         }
       }
     },
-    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj": {
+    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj",
-        "projectName": "CVETool.Interfaces",
-        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj",
+        "projectName": "CVETool.BL.Interfaces",
+        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\CVETool.BL.Interfaces.csproj",
         "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Interfaces\\obj\\",
         "projectStyle": "PackageReference",

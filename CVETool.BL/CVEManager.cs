@@ -1,4 +1,5 @@
-﻿using CVETool.Entities;
+﻿using CVETool.DAL;
+using CVETool.Entities;
 using CVETool.Interfaces;
 using Newtonsoft.Json;
 using System;
@@ -10,18 +11,28 @@ namespace CVETool.BL
     public class CVEManager: ICVEManager
     {
         public List<CVE> CVEs = new List<CVE>();
+        Database db;
 
         public void LoadJson()
         {
-            using (StreamReader r = new StreamReader(@"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles\nvdcve-1.1-2022.json"))
+            string filepath = @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles\";
+            string[] files = Directory.GetFiles(filepath, "*.json", SearchOption.AllDirectories);
+
+            foreach (var file in files)
             {
-                string json = r.ReadToEnd();
-                JSONImport import = JsonConvert.DeserializeObject<JSONImport>(json);
-                CVEInit(import);
+                using (StreamReader r = new StreamReader(file))
+                {
+                    string json = r.ReadToEnd();
+                    JSONImport import = JsonConvert.DeserializeObject<JSONImport>(json);
+                    CVEInit(import);
+                }
             }
+       
         }
         public void CVEInit(JSONImport param)
         {
+            //Duration without extracting VulnType: 1:30 min
+            //Duration with extracting VulnType: 8:30 min (string operations & ifs)
             for (int i = 0; i < param.CVE_Items.Count; i++)
             {
                 string CVEId = "N/A";
@@ -55,14 +66,12 @@ namespace CVETool.BL
                    integ = param.CVE_Items[i].impact.baseMetricV2.cvssV2.integrityImpact;
                    avail = param.CVE_Items[i].impact.baseMetricV2.cvssV2.availabilityImpact;
                 }
-                catch (Exception)
+                catch (Exception)  //for faulty records
                 {
 
                     continue;
                 }
               
-
-                string vulnTypee = getVulnType(param.CVE_Items[i].cve.description.description_data[0].value);
                 CVE vuln = new CVE(
                     CVEId,
                     CWEId, 
@@ -81,16 +90,90 @@ namespace CVETool.BL
                     );
                 CVEs.Add(vuln);
             }
-      
+            //db = new Database(CVEs);
+            
         }
-        //TODO
+  
+
         private string getVulnType(string param)
         {
-            return "N/A";
+            //https://www.cvedetails.com/vulnerabilities-by-types.php
+            //anfangs eine Liste genommen aber wegen der erhöhten dauer auf string zurückgegriffen --> o notation
+
+            string vulnType = "";
+
+            //DoS
+            if (param.Contains("denial of service", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "DoS + ";
+            }
+            //Code Execution
+            if (param.Contains("execute", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Code Execution + ";
+            }
+            //Overflow
+            if (param.Contains("buffer overflow", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Overflow + ";
+            }
+            //Memory Corruption
+            if (param.Contains("memory corruption", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Memory Corruption + ";
+            }
+            //SQL injection
+            if (param.Contains("sql injection",StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "SQL injection + ";
+            }
+            //XSS
+            if (param.Contains("Cross-site scripting (XSS)", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "XSS + ";
+            }
+            //Directory Traversal
+            if (param.Contains("directory traversal", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Directory Traversal + ";
+            }
+            //HTTP Response Splitting
+            if (param.Contains("HTTP response splitting", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "HTTP Response Splitting + ";
+            }
+            //Bypas something
+            if (param.Contains("bypass", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Bypas something + ";
+            }
+            //Gain Information   word information doesnt match every record
+            if (param.Contains("information", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Gain Information + ";
+            }
+            //Gain Privileges
+            if (param.Contains("privilege", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "Gain Privileges + ";
+            }
+            //CSRF
+            if (param.Contains("CSRF", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "CSRF + ";
+            }
+            //File Inclusion
+            if (param.Contains("file inclusion", StringComparison.CurrentCultureIgnoreCase))
+            {
+                vulnType += "File Inclusion + ";
+            }
+            
+     
+            return vulnType.Substring(0,vulnType.Length-3);
         }
         //TODO
         private string getExploit(string param)
-        {
+        {          
             return "N/A";
         }
 

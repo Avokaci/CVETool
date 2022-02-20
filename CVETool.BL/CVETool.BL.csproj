@@ -9,8 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CVETool.DAL\CVETool.DAL.csproj" />
     <ProjectReference Include="..\CVETool.Entities\CVETool.Entities.csproj" />
-    <ProjectReference Include="..\CVETool.Interfaces\CVETool.Interfaces.csproj" />
+    <ProjectReference Include="..\CVETool.Interfaces\CVETool.BL.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

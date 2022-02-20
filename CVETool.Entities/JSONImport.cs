@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 namespace CVETool.Entities
 {
+    //https://jsonutils.com
+    //https://codebeautify.org/json-deserialize-online for structure understanding/ beautify
     public class CVEDataMeta
     {
         public string ID { get; set; }

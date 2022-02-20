@@ -4,4 +4,13 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CVETool.DAL.Interfaces\CVETool.DAL.Interfaces.csproj" />
+    <ProjectReference Include="..\CVETool.Entities\CVETool.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

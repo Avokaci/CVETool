@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "CVETool.BL.Interfaces/1.0.0": {
+        "dependencies": {
+          "CVETool.Entities": "1.0.0"
+        },
+        "runtime": {
+          "CVETool.BL.Interfaces.dll": {}
+        }
+      },
+      "CVETool.Entities/1.0.0": {
+        "runtime": {
+          "CVETool.Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CVETool.BL.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CVETool.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

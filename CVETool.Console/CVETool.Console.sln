@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.UI", "CVETool.UI.csproj", "{F624FAE3-7FAD-475B-9915-133AFAA19DA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.UI", "CVETool.UI.csproj", "{F624FAE3-7FAD-475B-9915-133AFAA19DA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.BL", "..\CVETool.BL\CVETool.BL.csproj", "{D21DEFA9-FC12-41A5-800F-EB9B81523B2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL", "..\CVETool.BL\CVETool.BL.csproj", "{D21DEFA9-FC12-41A5-800F-EB9B81523B2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.Interfaces", "..\CVETool.Interfaces\CVETool.Interfaces.csproj", "{8AAAAA38-7DE6-4334-9FED-4642DA19717C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL.Interfaces", "..\CVETool.Interfaces\CVETool.BL.Interfaces.csproj", "{8AAAAA38-7DE6-4334-9FED-4642DA19717C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.Entities", "..\CVETool.Entities\CVETool.Entities.csproj", "{14EA687A-20DF-49BE-828E-8C7CB755D5A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.Entities", "..\CVETool.Entities\CVETool.Entities.csproj", "{14EA687A-20DF-49BE-828E-8C7CB755D5A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.DAL", "..\CVETool.DAL\CVETool.DAL.csproj", "{0AF2442E-DC54-432B-B2EC-19051997670D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL", "..\CVETool.DAL\CVETool.DAL.csproj", "{0AF2442E-DC54-432B-B2EC-19051997670D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.DAL.Interfaces", "..\CVETool.DAL.Interfaces\CVETool.DAL.Interfaces.csproj", "{36A82524-DF29-467A-B59D-8F5B63247E95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0AF2442E-DC54-432B-B2EC-19051997670D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0AF2442E-DC54-432B-B2EC-19051997670D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0AF2442E-DC54-432B-B2EC-19051997670D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36A82524-DF29-467A-B59D-8F5B63247E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A82524-DF29-467A-B59D-8F5B63247E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A82524-DF29-467A-B59D-8F5B63247E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A82524-DF29-467A-B59D-8F5B63247E95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
