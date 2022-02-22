@@ -7,5 +7,6 @@ namespace CVETool.DAL.Interfaces
     public interface IDatabase
     {
         public void SaveCVEsToDatabase(List<CVE> cveList);
+        public bool CheckRecordExists(string cVEID);
     }
 }

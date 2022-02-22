@@ -11,10 +11,10 @@ namespace CVETool.UI
 
             CVEManager manager = new CVEManager();
             manager.LoadJson();
-
             watch.Stop();
-            var elapsedMs = watch.ElapsedMilliseconds;
-            Console.WriteLine(elapsedMs);
+            TimeSpan timeSpan = watch.Elapsed;
+            Console.WriteLine("Time: {0}h {1}m {2}s {3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+
 
         }
     }
