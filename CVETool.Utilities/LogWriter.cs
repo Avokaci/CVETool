@@ -7,8 +7,15 @@ namespace CVETool.Utilities
     {
 
 
-        public void LogToConsole(string logMessage)
+        public void LogToConsoleProcessInfo(string logMessage)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.Write("\r\n" + $"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}" + $"  : {logMessage}");
+
+        }
+        public void LogToConsoleObjectInfo(string logMessage)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("\r\n" + $"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}" + $"  : {logMessage}");
 
         }

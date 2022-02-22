@@ -51,6 +51,7 @@ namespace CVETool.DAL
         
         public void SaveCVEsToDatabase(List<CVE> cveList)
         {
+            logger.LogToConsoleProcessInfo("Started inserting all new CVE records into database");
             foreach (var item in cveList)
             {
                 if (!CheckRecordExists(item.CVEId))
@@ -79,7 +80,7 @@ namespace CVETool.DAL
                 }
                
             }
-            logger.LogToConsole("Inserted all CVE records into database");
+            logger.LogToConsoleProcessInfo("Finished inserting all new CVE records into database");
 
         }
 

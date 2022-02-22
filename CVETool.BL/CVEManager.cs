@@ -43,11 +43,12 @@ namespace CVETool.BL
         LogWriter logger = new LogWriter();
         Database db;
 
-    
+
 
         //duration no file checking, no vulntype extraction, no db -->  loading files and creating objects --> 2min
         //duration no vulntype extraction, no db -->  file checking, loading files and creating objects --> 2min 5s
         //duration no db -->  file checking, loading files and creating objects, vulntype extraction, --> 10 min 5s with += , 9min 48s with Stringbuilder
+        //duration all inlc. -->  1h 38 min
 
 
         public void LoadJson()
@@ -63,8 +64,9 @@ namespace CVETool.BL
             {
                 PullCurrentYearRecords();
             }
+            string[] filesNew = Directory.GetFiles(filepath, "*.json", SearchOption.AllDirectories);
 
-            foreach (var file in files)
+            foreach (var file in filesNew)
             {
                 using (StreamReader r = new StreamReader(file))
                 {
@@ -73,11 +75,13 @@ namespace CVETool.BL
                     CVEInit(import);
                 }
             }
-
+            logger.LogToConsoleProcessInfo("Finished creating all CVE objects");
+            db = new Database(CVEs);
         }
         public void CVEInit(JSONImport param)
         {
-            
+            var year = param.CVE_Items[0].cve.CVE_data_meta.ID.Substring(4, 4);
+            logger.LogToConsoleProcessInfo("Started creating CVE objects for year " + year);
             for (int i = 0; i < param.CVE_Items.Count; i++)
             {
                 string CVEId = "N/A";
@@ -135,10 +139,7 @@ namespace CVETool.BL
                     );
                 CVEs.Add(vuln);
             }
-            logger.LogToConsole("Created CVE objects");
-            db = new Database(CVEs);
-            logger.LogToConsole("Inserted CVE objects to database");
-
+            logger.LogToConsoleProcessInfo("Finished creating CVE objects for year " + year);
         }
 
 
@@ -242,6 +243,7 @@ namespace CVETool.BL
 
         public void PullCurrentYearRecords()
         {
+            logger.LogToConsoleProcessInfo("Started pulling current CVE records");
             string currentYear = DateTime.Now.Year.ToString();
             string downloadPath = "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-" + currentYear + ".json.zip";
             string zipPath = @"C:\Users\burak_y46me01\Downloads\nvdcve-1.1-" + currentYear + ".json.zip";
@@ -255,7 +257,7 @@ namespace CVETool.BL
             }
             webClient.DownloadFile(downloadPath, zipPath);
             System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles");
-            logger.LogToConsole("Pulled current CVE records");
+            logger.LogToConsoleProcessInfo("Finished pulling current CVE records");
 
 
         }
@@ -263,6 +265,7 @@ namespace CVETool.BL
         public void PullAllYearRecords()
         {
              int currentYear = DateTime.Now.Year;
+            logger.LogToConsoleProcessInfo("Started pulling all CVE records");
 
             for (int year = 2002; year < currentYear+1; year++)
             {
@@ -278,9 +281,9 @@ namespace CVETool.BL
                 }
                 webClient.DownloadFile(downloadPath, zipPath);
                 System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles");
-                logger.LogToConsole("Pulled CVE records from year " + year);
+                logger.LogToConsoleObjectInfo("Pulled CVE records from year " + year);
             }
-            logger.LogToConsole("Pulled all CVE records");
+            logger.LogToConsoleProcessInfo("Finished pulling all CVE records");
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using CVETool.BL;
+using CVETool.Utilities;
 using Microsoft.Extensions.Logging;
 using System;
 
@@ -10,6 +11,7 @@ namespace CVETool.UI
 
         static void Main(string[] args)
         {
+         
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             CVEManager manager = new CVEManager();
