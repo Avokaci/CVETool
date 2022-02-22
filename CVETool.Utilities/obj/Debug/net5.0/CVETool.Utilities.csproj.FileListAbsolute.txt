@@ -1,0 +1,12 @@
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\bin\Debug\net5.0\CVETool.Utilities.deps.json
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\bin\Debug\net5.0\CVETool.Utilities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\bin\Debug\net5.0\ref\CVETool.Utilities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\bin\Debug\net5.0\CVETool.Utilities.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.csproj.AssemblyReference.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.AssemblyInfoInputs.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.AssemblyInfo.cs
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\ref\CVETool.Utilities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Utilities\obj\Debug\net5.0\CVETool.Utilities.pdb

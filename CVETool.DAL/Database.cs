@@ -1,5 +1,7 @@
 ﻿using CVETool.DAL.Interfaces;
 using CVETool.Entities;
+using CVETool.Utilities;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,6 +13,7 @@ namespace CVETool.DAL
 {
     public class Database:IDatabase
     {
+        LogWriter logger = new LogWriter();
         string _connectionString;
         SqlConnection con;
         SqlCommand cmd;
@@ -76,7 +79,8 @@ namespace CVETool.DAL
                 }
                
             }
-           
+            logger.LogToConsole("Inserted all CVE records into database");
+
         }
 
         public bool CheckRecordExists(string cVEID)

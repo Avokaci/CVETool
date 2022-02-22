@@ -1,10 +1,13 @@
 ﻿using CVETool.BL;
+using Microsoft.Extensions.Logging;
 using System;
 
 namespace CVETool.UI
 {
     public class Program
     {
+      
+
         static void Main(string[] args)
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();

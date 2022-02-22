@@ -1,11 +1,14 @@
 ﻿using CVETool.DAL;
 using CVETool.Entities;
 using CVETool.Interfaces;
+using CVETool.Utilities;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 
 namespace CVETool.BL
 {
@@ -37,11 +40,14 @@ namespace CVETool.BL
     public class CVEManager: ICVEManager
     {
         public List<CVE> CVEs = new List<CVE>();
+        LogWriter logger = new LogWriter();
         Database db;
+
+    
 
         //duration no file checking, no vulntype extraction, no db -->  loading files and creating objects --> 2min
         //duration no vulntype extraction, no db -->  file checking, loading files and creating objects --> 2min 5s
-        //duration no db -->  file checking, loading files and creating objects, vulntype extraction, --> 10min 5s
+        //duration no db -->  file checking, loading files and creating objects, vulntype extraction, --> 10 min 5s with += , 9min 48s with Stringbuilder
 
 
         public void LoadJson()
@@ -129,86 +135,104 @@ namespace CVETool.BL
                     );
                 CVEs.Add(vuln);
             }
+            logger.LogToConsole("Created CVE objects");
             db = new Database(CVEs);
-            
+            logger.LogToConsole("Inserted CVE objects to database");
+
         }
-  
+
 
         private string getVulnType(string param)
         {
             //https://www.cvedetails.com/vulnerabilities-by-types.php
             //anfangs eine Liste genommen aber wegen der erhöhten dauer auf string zurückgegriffen --> o notation
+            //https://dotnetcoretutorials.com/2020/02/06/performance-of-string-concatenation-in-c/
 
-            string vulnType = "";
+            //string vulnType = "";
+            StringBuilder builder = new StringBuilder();
 
             //DoS
             if (param.Contains("denial of service", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "DoS + ";
+                //vulnType += "DoS + ";
+                builder.Append("DoS + ");
             }
             //Code Execution
             if (param.Contains("execute", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Code Execution + ";
+                //vulnType += "Code Execution + ";
+                builder.Append("Code Execution + ");
             }
             //Overflow
             if (param.Contains("buffer overflow", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Overflow + ";
+                //vulnType += "Overflow + ";
+                builder.Append("Overflow + ");
             }
             //Memory Corruption
             if (param.Contains("memory corruption", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Memory Corruption + ";
+                //vulnType += "Memory Corruption + ";
+                builder.Append("Memory Corruption + ");
             }
             //SQL injection
             if (param.Contains("sql injection",StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "SQL injection + ";
+                //vulnType += "SQL injection + ";
+                builder.Append("SQL injection + ");
             }
             //XSS
             if (param.Contains("Cross-site scripting (XSS)", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "XSS + ";
+                //vulnType += "XSS + ";
+                builder.Append("XSS + ");
             }
             //Directory Traversal
             if (param.Contains("directory traversal", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Directory Traversal + ";
+                //vulnType += "Directory Traversal + ";
+                builder.Append("Directory Traversal + ");
             }
             //HTTP Response Splitting
             if (param.Contains("HTTP response splitting", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "HTTP Response Splitting + ";
+                //vulnType += "HTTP Response Splitting + ";
+                builder.Append("HTTP Response Splitting + ");
             }
             //Bypas something
             if (param.Contains("bypass", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Bypas something + ";
+                //vulnType += "Bypas something + ";
+                builder.Append("Bypas something + ");
             }
             //Gain Information   word information doesnt match every record
             if (param.Contains("information", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Gain Information + ";
+                //vulnType += "Gain Information + ";
+                builder.Append("Gain Information + ");
             }
             //Gain Privileges
             if (param.Contains("privilege", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "Gain Privileges + ";
+                //vulnType += "Gain Privileges + ";
+                builder.Append("Gain Privileges + ");
             }
             //CSRF
             if (param.Contains("CSRF", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "CSRF + ";
+                //vulnType += "CSRF + ";
+                builder.Append("CSRF + ");
             }
             //File Inclusion
             if (param.Contains("file inclusion", StringComparison.CurrentCultureIgnoreCase))
             {
-                vulnType += "File Inclusion + ";
+                //vulnType += "File Inclusion + ";
+                builder.Append("File Inclusion + ");
             }
-            
-     
-            return vulnType.Substring(0,vulnType.Length-3);
+
+
+            //return vulnType.Substring(0,vulnType.Length-3);
+            return builder.ToString().Substring(0, builder.ToString().Length - 3);
         }
         //TODO
         private string getExploit(string param)
@@ -231,6 +255,8 @@ namespace CVETool.BL
             }
             webClient.DownloadFile(downloadPath, zipPath);
             System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles");
+            logger.LogToConsole("Pulled current CVE records");
+
 
         }
 
@@ -252,7 +278,10 @@ namespace CVETool.BL
                 }
                 webClient.DownloadFile(downloadPath, zipPath);
                 System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles");
+                logger.LogToConsole("Pulled CVE records from year " + year);
             }
+            logger.LogToConsole("Pulled all CVE records");
+
         }
     }
 }

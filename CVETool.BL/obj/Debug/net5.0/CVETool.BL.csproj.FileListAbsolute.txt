@@ -19,3 +19,5 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVET
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.DAL.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.BL.Interfaces.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.DAL.Interfaces.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.Utilities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.Utilities.pdb

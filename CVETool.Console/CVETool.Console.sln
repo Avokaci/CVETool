@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.Entities", "..\CVET
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL", "..\CVETool.DAL\CVETool.DAL.csproj", "{0AF2442E-DC54-432B-B2EC-19051997670D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.DAL.Interfaces", "..\CVETool.DAL.Interfaces\CVETool.DAL.Interfaces.csproj", "{36A82524-DF29-467A-B59D-8F5B63247E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL.Interfaces", "..\CVETool.DAL.Interfaces\CVETool.DAL.Interfaces.csproj", "{36A82524-DF29-467A-B59D-8F5B63247E95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.Utilities", "..\CVETool.Utilities\CVETool.Utilities.csproj", "{8A1F6DD2-4BA6-410A-A40F-9786DA6499ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{36A82524-DF29-467A-B59D-8F5B63247E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A82524-DF29-467A-B59D-8F5B63247E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36A82524-DF29-467A-B59D-8F5B63247E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A1F6DD2-4BA6-410A-A40F-9786DA6499ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1F6DD2-4BA6-410A-A40F-9786DA6499ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1F6DD2-4BA6-410A-A40F-9786DA6499ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1F6DD2-4BA6-410A-A40F-9786DA6499ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

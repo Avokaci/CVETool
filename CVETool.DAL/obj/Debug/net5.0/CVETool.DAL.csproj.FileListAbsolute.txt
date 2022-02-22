@@ -15,3 +15,5 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVE
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.DAL.Interfaces.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Entities.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\CVETool.DAL.csproj.CopyComplete
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Utilities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Utilities.pdb
