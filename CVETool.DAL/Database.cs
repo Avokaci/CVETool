@@ -4,6 +4,7 @@ using CVETool.Utilities;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -93,6 +94,65 @@ namespace CVETool.DAL
             return false;
         }
 
-         
+        public List<CVE> GetAllCVEsFromDB()
+        {
+            List<CVE> cveList = new List<CVE>();
+            cmd.CommandText = "SELECT * FROM dbo.CVE";
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    CVE item = new CVE(
+                        reader["CVEId"].ToString(),
+                        reader["CWEId"].ToString(),
+                        reader["VulnerabilityType"].ToString(),
+                        reader["Description"].ToString(),
+                        reader["Publishdate"].ToString(),
+                        reader["ModificationDate"].ToString(),
+                        Convert.ToDouble( reader["Score"]),
+                        reader["ExploitExists"].ToString(),
+                        reader["Access"].ToString(),
+                        reader["Complexity"].ToString(),
+                        reader["Authentication"].ToString(),
+                        reader["Confidentiality"].ToString(),
+                        reader["Integrity"].ToString(),
+                        reader["Avaialability"].ToString()
+                        );           
+                    cveList.Add(item);
+                }
+                return cveList;
+            }
+        }
+
+        public CVE GetSingleCVEFromDB(string cveId)
+        {
+            cmd.CommandText = "SELECT * FROM dbo.CVE where CVEId='" + cveId + "'";
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                CVE item = null;
+                while (reader.Read())
+                {
+                     item = new CVE(
+                       reader["CVEId"].ToString(),
+                       reader["CWEId"].ToString(),
+                       reader["VulnerabilityType"].ToString(),
+                       reader["Description"].ToString(),
+                       reader["Publishdate"].ToString(),
+                       reader["ModificationDate"].ToString(),
+                       Convert.ToDouble(reader["Score"]),
+                       reader["ExploitExists"].ToString(),
+                       reader["Access"].ToString(),
+                       reader["Complexity"].ToString(),
+                       reader["Authentication"].ToString(),
+                       reader["Confidentiality"].ToString(),
+                       reader["Integrity"].ToString(),
+                       reader["Avaialability"].ToString()
+                       );
+                    return item;
+                }
+                return item;
+
+            }
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace CVETool.BL
         //duration no file checking, no vulntype extraction, no db -->  loading files and creating objects --> 2min
         //duration no vulntype extraction, no db -->  file checking, loading files and creating objects --> 2min 5s
         //duration no db -->  file checking, loading files and creating objects, vulntype extraction, --> 10 min 5s with += , 9min 48s with Stringbuilder
-        //duration all inlc. -->  1h 38 min
+        //duration all incl. -->  1h 38 min
 
 
         public void LoadJson()
@@ -103,11 +103,11 @@ namespace CVETool.BL
                    CVEId = param.CVE_Items[i].cve.CVE_data_meta.ID;
                    CWEId = param.CVE_Items[i].cve.problemtype.problemtype_data[0].description[0].value;
                    description = param.CVE_Items[i].cve.description.description_data[0].value;
-                   vulnType = getVulnType(description);
+                   vulnType = GetVulnType(description);
                    publishDate = param.CVE_Items[i].publishedDate;
                    updateDate = param.CVE_Items[i].lastModifiedDate;
                    score = Convert.ToDouble(param.CVE_Items[i].impact.baseMetricV2.cvssV2.baseScore);
-                   exploit = getExploit(CVEId);
+                   exploit = GetExploit(CVEId);
                    access = param.CVE_Items[i].impact.baseMetricV2.cvssV2.accessVector;
                    complexity = param.CVE_Items[i].impact.baseMetricV2.cvssV2.accessComplexity;
                    auth = param.CVE_Items[i].impact.baseMetricV2.cvssV2.authentication;
@@ -142,8 +142,7 @@ namespace CVETool.BL
             logger.LogToConsoleProcessInfo("Finished creating CVE objects for year " + year);
         }
 
-
-        private string getVulnType(string param)
+        private string GetVulnType(string param)
         {
             //https://www.cvedetails.com/vulnerabilities-by-types.php
             //anfangs eine Liste genommen aber wegen der erhöhten dauer auf string zurückgegriffen --> o notation
@@ -236,7 +235,7 @@ namespace CVETool.BL
             return builder.ToString().Substring(0, builder.ToString().Length - 3);
         }
         //TODO
-        private string getExploit(string param)
+        private string GetExploit(string param)
         {          
             return "N/A";
         }
@@ -285,6 +284,20 @@ namespace CVETool.BL
             }
             logger.LogToConsoleProcessInfo("Finished pulling all CVE records");
 
+        }
+
+        public List<CVE> GetAllCVEs()
+        {
+            db = new Database(CVEs);
+            return  CVEs = db.GetAllCVEsFromDB();
+         
+        }
+
+        public CVE GetSingleCVE(string cveId)
+        {
+            db = new Database(CVEs);
+            CVE cve = db.GetSingleCVEFromDB(cveId);
+            return cve;
         }
     }
 }

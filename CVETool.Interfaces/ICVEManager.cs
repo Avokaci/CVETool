@@ -1,5 +1,6 @@
 ﻿using CVETool.Entities;
 using System;
+using System.Collections.Generic;
 
 namespace CVETool.Interfaces
 {
@@ -10,6 +11,9 @@ namespace CVETool.Interfaces
         public void LoadJson();
         public void CVEInit(JSONImport import);
 
-        
+        public List<CVE> GetAllCVEs();
+        public CVE GetSingleCVE(string cveId);
+
+
     }
 }

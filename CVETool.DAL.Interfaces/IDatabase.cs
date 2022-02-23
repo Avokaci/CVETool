@@ -8,5 +8,8 @@ namespace CVETool.DAL.Interfaces
     {
         public void SaveCVEsToDatabase(List<CVE> cveList);
         public bool CheckRecordExists(string cVEID);
+        public List<CVE> GetAllCVEsFromDB();
+        public CVE GetSingleCVEFromDB(string cveId);
+     
     }
 }
