@@ -1,4 +1,5 @@
 ﻿using CVETool.BL;
+using CVETool.Interfaces;
 using CVETool.Utilities;
 using Microsoft.Extensions.Logging;
 using System;
@@ -14,7 +15,7 @@ namespace CVETool.UI
          
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            CVEManager manager = new CVEManager();
+            ICVEManager manager = CVEManager.GetInstance();
             manager.AutoInit();
             watch.Stop();
             TimeSpan timeSpan = watch.Elapsed;

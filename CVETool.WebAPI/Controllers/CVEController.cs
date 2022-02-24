@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Authorization;
 using CVETool.WebAPI.Models;
 using CVETool.Entities;
 using CVETool.BL;
+using CVETool.Interfaces;
+using System.Text;
 
 namespace CVETool.WebAPI.Controllers
 {
@@ -29,11 +31,8 @@ namespace CVETool.WebAPI.Controllers
     [ApiController]
     public class CVEAPI : ControllerBase
     {
-        CVEManager _manager = new CVEManager();
+        ICVEManager manager = CVEManager.GetInstance();
 
-        string[] importedFiles { get; set; }
-
-      
         [HttpPost]
         [Route("/autoInit")]
         [ValidateModelState]
@@ -44,7 +43,7 @@ namespace CVETool.WebAPI.Controllers
         {
             try
             {
-                _manager.AutoInit();
+                manager.AutoInit();
                 return new ObjectResult("Auto initialization succesfull") { StatusCode = 200 };
             }
             catch (Exception)
@@ -63,7 +62,7 @@ namespace CVETool.WebAPI.Controllers
         {
             try
             {
-                importedFiles = _manager.LoadJson();
+                manager.LoadJson();
                 return new ObjectResult("Files succesfully loaded") { StatusCode = 200 };
             }
             catch (Exception)
@@ -82,14 +81,9 @@ namespace CVETool.WebAPI.Controllers
         public virtual IActionResult CreateCVEs()
         {
             try
-            {
-             
-                //_manager.CreateCVEs();
-                int i = _manager.CVEs.Count;
-
-                return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };
-             
-
+            {           
+                manager.CreateCVEs();
+                return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };           
             }
             catch (Exception)
             {
@@ -107,7 +101,7 @@ namespace CVETool.WebAPI.Controllers
         {
             try
             {
-                _manager.SaveCVEsToDatabase();
+                manager.SaveCVEsToDatabase();
                 return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };
             }
             catch (Exception)
@@ -126,8 +120,13 @@ namespace CVETool.WebAPI.Controllers
         {
             try
             {
-                return new ObjectResult("Auto initialization succesfull") { StatusCode = 200 };
-
+                var sb = new StringBuilder();
+                List<CVE> cveList = manager.GetAllCVEs();
+                foreach (CVE item in cveList)
+                {
+                    sb.Append(item.ToStringFlat() + "\n");
+                }             
+                return new ObjectResult(sb.ToString()) { StatusCode = 200 };
             }
             catch (Exception)
             {
@@ -146,7 +145,8 @@ namespace CVETool.WebAPI.Controllers
         {
             try
             {
-                return new ObjectResult("Auto initialization succesfull") { StatusCode = 200 };
+                CVE foundCve = manager.GetSingleCVE(cveId);              
+                return new ObjectResult(foundCve.ToString()) { StatusCode = 200 };
 
             }
             catch (Exception)

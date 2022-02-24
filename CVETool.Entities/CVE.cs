@@ -59,5 +59,46 @@ namespace CVETool.Entities
         public string Integrity { get => _Integrity; set => _Integrity = value; }
         public string Availability { get => _Availability; set => _Availability = value; }
         public string Description { get => _Description; set => _Description = value; }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append("  CVEId: ").Append(CVEId).Append("\n");
+            sb.Append("  CWEId: ").Append(CWEId).Append("\n");
+            sb.Append("  VulnerabilityType: ").Append(VulnerabilityType).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  PublishDate: ").Append(PublishDate).Append("\n");
+            sb.Append("  UpdateDate: ").Append(UpdateDate).Append("\n");
+            sb.Append("  Score: ").Append(Score).Append("\n");
+            sb.Append("  ExploitExists: ").Append(ExploitExists).Append("\n");
+            sb.Append("  Access: ").Append(Access).Append("\n");
+            sb.Append("  Complexity: ").Append(Complexity).Append("\n");
+            sb.Append("  Authentication: ").Append(Authentication).Append("\n");
+            sb.Append("  Confidentiality: ").Append(Confidentiality).Append("\n");
+            sb.Append("  Integrity: ").Append(Integrity).Append("\n");
+            sb.Append("  Availability: ").Append(Availability).Append("\n");
+            return sb.ToString();
+
+         
+        }
+        public string ToStringFlat()
+        {
+            var sb = new StringBuilder();
+            sb.Append("  CVEId: ").Append(CVEId).Append("; ");
+            sb.Append("  CWEId: ").Append(CWEId).Append("; ");
+            sb.Append("  VulnerabilityType: ").Append(VulnerabilityType).Append("; ");
+            sb.Append("  PublishDate: ").Append(PublishDate).Append("; ");
+            sb.Append("  UpdateDate: ").Append(UpdateDate).Append("; ");
+            sb.Append("  Score: ").Append(Score).Append("; ");
+            sb.Append("  ExploitExists: ").Append(ExploitExists).Append("; ");
+            sb.Append("  Access: ").Append(Access).Append("; ");
+            sb.Append("  Complexity: ").Append(Complexity).Append("; ");
+            sb.Append("  Authentication: ").Append(Authentication).Append("; ");
+            sb.Append("  Confidentiality: ").Append(Confidentiality).Append("; ");
+            sb.Append("  Integrity: ").Append(Integrity).Append("; ");
+            sb.Append("  Availability: ").Append(Availability).Append("; ");
+            sb.Append("  Description: ").Append(Description).Append("; ");
+            return sb.ToString();
+        }
     }
 }
