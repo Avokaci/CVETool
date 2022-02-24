@@ -37,22 +37,28 @@ namespace CVETool.BL
 
     //Total: 180955 CVEs
     //Program: 115887 CVEs
-    public class CVEManager: ICVEManager
+    public class CVEManager : ICVEManager
     {
         public List<CVE> CVEs = new List<CVE>();
         LogWriter logger = new LogWriter();
         Database db;
-
-
+        JSONImport import;
+        string[] filesNew = null;
 
         //duration no file checking, no vulntype extraction, no db -->  loading files and creating objects --> 2min
         //duration no vulntype extraction, no db -->  file checking, loading files and creating objects --> 2min 5s
         //duration no db -->  file checking, loading files and creating objects, vulntype extraction, --> 10 min 5s with += , 9min 48s with Stringbuilder
         //duration all incl. -->  1h 38 min
-
-
-        public void LoadJson()
+        public void AutoInit()
         {
+            filesNew = LoadJson();
+            CreateCVEs();
+            db = new Database(CVEs);
+            SaveCVEsToDatabase();
+        }
+        public string[] LoadJson()
+        {
+
             string filepath = @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles\";
             string[] files = Directory.GetFiles(filepath, "*.json", SearchOption.AllDirectories);
 
@@ -65,81 +71,81 @@ namespace CVETool.BL
                 PullCurrentYearRecords();
             }
             string[] filesNew = Directory.GetFiles(filepath, "*.json", SearchOption.AllDirectories);
-
+            return filesNew;
+        }
+        public void CreateCVEs()
+        {
             foreach (var file in filesNew)
             {
                 using (StreamReader r = new StreamReader(file))
                 {
                     string json = r.ReadToEnd();
-                    JSONImport import = JsonConvert.DeserializeObject<JSONImport>(json);
-                    CVEInit(import);
+                    import = JsonConvert.DeserializeObject<JSONImport>(json);
+
+                    var year = import.CVE_Items[0].cve.CVE_data_meta.ID.Substring(4, 4);
+                    logger.LogToConsoleProcessInfo("Started creating CVE objects for year " + year);
+                    for (int i = 0; i < import.CVE_Items.Count; i++)
+                    {
+                        string CVEId = "N/A";
+                        string CWEId = "N/A";
+                        string description = "N/A";
+                        string vulnType = "N/A";
+                        string publishDate = "N/A";
+                        string updateDate = "N/A";
+                        double score = 0;
+                        string exploit = "N/A";
+                        string access = "N/A";
+                        string complexity = "N/A";
+                        string auth = "N/A";
+                        string conf = "N/A";
+                        string integ = "N/A";
+                        string avail = "N/A";
+                        try
+                        {
+                            CVEId = import.CVE_Items[i].cve.CVE_data_meta.ID;
+                            CWEId = import.CVE_Items[i].cve.problemtype.problemtype_data[0].description[0].value;
+                            description = import.CVE_Items[i].cve.description.description_data[0].value;
+                            vulnType = GetVulnType(description);
+                            publishDate = import.CVE_Items[i].publishedDate;
+                            updateDate = import.CVE_Items[i].lastModifiedDate;
+                            score = Convert.ToDouble(import.CVE_Items[i].impact.baseMetricV2.cvssV2.baseScore);
+                            exploit = GetExploit(CVEId);
+                            access = import.CVE_Items[i].impact.baseMetricV2.cvssV2.accessVector;
+                            complexity = import.CVE_Items[i].impact.baseMetricV2.cvssV2.accessComplexity;
+                            auth = import.CVE_Items[i].impact.baseMetricV2.cvssV2.authentication;
+                            conf = import.CVE_Items[i].impact.baseMetricV2.cvssV2.confidentialityImpact;
+                            integ = import.CVE_Items[i].impact.baseMetricV2.cvssV2.integrityImpact;
+                            avail = import.CVE_Items[i].impact.baseMetricV2.cvssV2.availabilityImpact;
+                        }
+                        catch (Exception)  //for faulty records
+                        {
+
+                            continue;
+                        }
+
+                        CVE vuln = new CVE(
+                            CVEId,
+                            CWEId,
+                            vulnType,
+                            description,
+                            publishDate,
+                            updateDate,
+                            score,
+                            exploit,
+                            access,
+                            complexity,
+                            auth,
+                            conf,
+                            integ,
+                            avail
+                            );
+                        CVEs.Add(vuln);
+                    }
+                    logger.LogToConsoleProcessInfo("Finished creating CVE objects for year " + year);
                 }
             }
             logger.LogToConsoleProcessInfo("Finished creating all CVE objects");
-            db = new Database(CVEs);
-        }
-        public void CVEInit(JSONImport param)
-        {
-            var year = param.CVE_Items[0].cve.CVE_data_meta.ID.Substring(4, 4);
-            logger.LogToConsoleProcessInfo("Started creating CVE objects for year " + year);
-            for (int i = 0; i < param.CVE_Items.Count; i++)
-            {
-                string CVEId = "N/A";
-                string CWEId = "N/A";
-                string description = "N/A";
-                string vulnType = "N/A";
-                string publishDate = "N/A";
-                string updateDate = "N/A";
-                double score = 0;
-                string exploit = "N/A";
-                string access = "N/A";
-                string complexity = "N/A";
-                string auth = "N/A";
-                string conf = "N/A";
-                string integ = "N/A";
-                string avail = "N/A";
-                try
-                {
-                   CVEId = param.CVE_Items[i].cve.CVE_data_meta.ID;
-                   CWEId = param.CVE_Items[i].cve.problemtype.problemtype_data[0].description[0].value;
-                   description = param.CVE_Items[i].cve.description.description_data[0].value;
-                   vulnType = GetVulnType(description);
-                   publishDate = param.CVE_Items[i].publishedDate;
-                   updateDate = param.CVE_Items[i].lastModifiedDate;
-                   score = Convert.ToDouble(param.CVE_Items[i].impact.baseMetricV2.cvssV2.baseScore);
-                   exploit = GetExploit(CVEId);
-                   access = param.CVE_Items[i].impact.baseMetricV2.cvssV2.accessVector;
-                   complexity = param.CVE_Items[i].impact.baseMetricV2.cvssV2.accessComplexity;
-                   auth = param.CVE_Items[i].impact.baseMetricV2.cvssV2.authentication;
-                   conf = param.CVE_Items[i].impact.baseMetricV2.cvssV2.confidentialityImpact;
-                   integ = param.CVE_Items[i].impact.baseMetricV2.cvssV2.integrityImpact;
-                   avail = param.CVE_Items[i].impact.baseMetricV2.cvssV2.availabilityImpact;
-                }
-                catch (Exception)  //for faulty records
-                {
 
-                    continue;
-                }
-              
-                CVE vuln = new CVE(
-                    CVEId,
-                    CWEId, 
-                    vulnType, 
-                    description, 
-                    publishDate,
-                    updateDate, 
-                    score, 
-                    exploit, 
-                    access, 
-                    complexity, 
-                    auth, 
-                    conf, 
-                    integ, 
-                    avail               
-                    );
-                CVEs.Add(vuln);
-            }
-            logger.LogToConsoleProcessInfo("Finished creating CVE objects for year " + year);
         }
 
         private string GetVulnType(string param)
@@ -176,7 +182,7 @@ namespace CVETool.BL
                 builder.Append("Memory Corruption + ");
             }
             //SQL injection
-            if (param.Contains("sql injection",StringComparison.CurrentCultureIgnoreCase))
+            if (param.Contains("sql injection", StringComparison.CurrentCultureIgnoreCase))
             {
                 //vulnType += "SQL injection + ";
                 builder.Append("SQL injection + ");
@@ -236,11 +242,11 @@ namespace CVETool.BL
         }
         //TODO
         private string GetExploit(string param)
-        {          
+        {
             return "N/A";
         }
 
-        public void PullCurrentYearRecords()
+        private void PullCurrentYearRecords()
         {
             logger.LogToConsoleProcessInfo("Started pulling current CVE records");
             string currentYear = DateTime.Now.Year.ToString();
@@ -256,17 +262,17 @@ namespace CVETool.BL
             }
             webClient.DownloadFile(downloadPath, zipPath);
             System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles");
-            logger.LogToConsoleProcessInfo("Finished pulling current CVE records");
+            logger.LogToConsoleProcessInfo("Finished pulling current CVE records (" + currentYear + ")");
 
 
         }
 
-        public void PullAllYearRecords()
+        private void PullAllYearRecords()
         {
-             int currentYear = DateTime.Now.Year;
+            int currentYear = DateTime.Now.Year;
             logger.LogToConsoleProcessInfo("Started pulling all CVE records");
 
-            for (int year = 2002; year < currentYear+1; year++)
+            for (int year = 2002; year < currentYear + 1; year++)
             {
                 string downloadPath = "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-" + year + ".json.zip";
                 string zipPath = @"C:\Users\burak_y46me01\Downloads\nvdcve-1.1-" + year + ".json.zip";
@@ -286,11 +292,15 @@ namespace CVETool.BL
 
         }
 
+        public void SaveCVEsToDatabase()
+        {
+            db = new Database(CVEs);
+            db.SaveCVEsToDatabase();
+        }
         public List<CVE> GetAllCVEs()
         {
             db = new Database(CVEs);
-            return  CVEs = db.GetAllCVEsFromDB();
-         
+            return CVEs = db.GetAllCVEsFromDB();
         }
 
         public CVE GetSingleCVE(string cveId)
@@ -299,5 +309,6 @@ namespace CVETool.BL
             CVE cve = db.GetSingleCVEFromDB(cveId);
             return cve;
         }
+
     }
 }

@@ -15,7 +15,7 @@ namespace CVETool.UI
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             CVEManager manager = new CVEManager();
-            manager.LoadJson();
+            manager.AutoInit();
             watch.Stop();
             TimeSpan timeSpan = watch.Elapsed;
             Console.WriteLine("Time: {0}h {1}m {2}s {3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);

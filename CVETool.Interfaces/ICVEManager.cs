@@ -6,11 +6,10 @@ namespace CVETool.Interfaces
 {
     public interface ICVEManager
     {
-        public void PullAllYearRecords();
-        public void PullCurrentYearRecords();
-        public void LoadJson();
-        public void CVEInit(JSONImport import);
-
+        public void AutoInit();
+        public string[] LoadJson();
+        public void CreateCVEs();
+        public void SaveCVEsToDatabase();
         public List<CVE> GetAllCVEs();
         public CVE GetSingleCVE(string cveId);
 

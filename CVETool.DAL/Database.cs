@@ -18,6 +18,7 @@ namespace CVETool.DAL
         string _connectionString;
         SqlConnection con;
         SqlCommand cmd;
+        List<CVE> _cveList = new List<CVE>();
 
         //Constructor for empty DB to create from scratch loading all existing CVE records from all years
         public Database(List<CVE> cveList)
@@ -47,13 +48,14 @@ namespace CVETool.DAL
             //                    Avaialability VARCHAR(255)
             //                    )";
             //cmd.ExecuteNonQuery();
-            SaveCVEsToDatabase(cveList);
+            //SaveCVEsToDatabase(cveList);
+            _cveList = cveList;
         }
         
-        public void SaveCVEsToDatabase(List<CVE> cveList)
+        public void SaveCVEsToDatabase()
         {
             logger.LogToConsoleProcessInfo("Started inserting all new CVE records into database");
-            foreach (var item in cveList)
+            foreach (var item in _cveList)
             {
                 if (!CheckRecordExists(item.CVEId))
                 {
