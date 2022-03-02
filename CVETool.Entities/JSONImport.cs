@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CVETool.Entities
 {
-    //https://jsonutils.com
+    //https://jsonutils.com for generating classes/objects
     //https://codebeautify.org/json-deserialize-online for structure understanding/ beautify
     public class CVEDataMeta
     {

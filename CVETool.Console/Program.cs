@@ -12,14 +12,14 @@ namespace CVETool.UI
 
         static void Main(string[] args)
         {
-         
-            var watch = System.Diagnostics.Stopwatch.StartNew();
 
+
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             ICVEManager manager = CVEManager.GetInstance();
             manager.AutoInit();
             watch.Stop();
             TimeSpan timeSpan = watch.Elapsed;
-            Console.WriteLine("Time: {0}h {1}m {2}s {3}ms", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds);
+            Console.WriteLine("Time: {0}h {1}m {2}s", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
 
 
         }

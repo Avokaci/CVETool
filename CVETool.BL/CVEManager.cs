@@ -12,6 +12,7 @@ using System.Text;
 
 namespace CVETool.BL
 {
+    //singleton pattern for data persistence in api controller
     public static class CVEManager
     {
         private static ICVEManager instance;

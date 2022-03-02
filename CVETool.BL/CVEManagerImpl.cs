@@ -21,16 +21,41 @@ namespace CVETool.BL
         JSONImport import;
         string[] filesNew = null;
 
-        //duration no file checking, no vulntype extraction, no db -->  loading files and creating objects --> 2min
-        //duration no vulntype extraction, no db -->  file checking, loading files and creating objects --> 2min 5s
-        //duration no db -->  file checking, loading files and creating objects, vulntype extraction, --> 10 min 5s with += , 9min 48s with Stringbuilder
-        //duration all incl. -->  1h 38 min
+        //from scratch
+        //duration pulling and loading json files: 0:0:14
+        //duration for creating CVE objects: 0:2:48
+        //duration for creating database records of cve objects: 1:25:14
+
+        //files exist, db records exist
+        //duration pulling and loading json files: 0:0:2
+        //duration for creating CVE objects: 0:2:40
+
+
         public void AutoInit()
         {
+            //pulling and loading json files
+            var watch = System.Diagnostics.Stopwatch.StartNew();         
             filesNew = LoadJson();
+            watch.Stop();
+            TimeSpan timeSpan = watch.Elapsed;
+            logger.LogToConsoleProcessInfo("Elapsed time for pulling and loading JSON files: " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
+           
+            //creating CVE objects from json files
+            watch = System.Diagnostics.Stopwatch.StartNew();
             CreateCVEs();
+            watch.Stop();
+            timeSpan = watch.Elapsed;
+            logger.LogToConsoleProcessInfo("Elapsed time for creating CVE objects: " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
+
+            //creating database records from cve objects
+            watch = System.Diagnostics.Stopwatch.StartNew();
             db = new Database(CVEs);
             SaveCVEsToDatabase();
+            watch.Stop();
+            timeSpan = watch.Elapsed;
+            logger.LogToConsoleProcessInfo("Elapsed time for creating database records of CVE objects: " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
+
+
         }
         public string[] LoadJson()
         {
@@ -78,7 +103,7 @@ namespace CVETool.BL
                         string avail = "N/A";
                         try
                         {
-                            CVEId = import.CVE_Items[i].cve.CVE_data_meta.ID;
+                            CVEId = import.CVE_Items[i].cve.CVE_data_meta.ID;                       
                             CWEId = import.CVE_Items[i].cve.problemtype.problemtype_data[0].description[0].value;
                             description = import.CVE_Items[i].cve.description.description_data[0].value;
                             vulnType = GetVulnType(description);
@@ -116,8 +141,14 @@ namespace CVETool.BL
                             avail
                             );
                         CVEs.Add(vuln);
+                        if (i % 1000 == 0)
+                        {
+                            int progressPercentage = (int)Math.Round((double)(i * 100 / import.CVE_Items.Count));
+                            logger.LogToConsoleObjectInfo("Creating CVEs progress: " + progressPercentage +"%");
+                        }
                     }
                     logger.LogToConsoleProcessInfo("Finished creating CVE objects for year " + year);
+
                 }
             }
             logger.LogToConsoleProcessInfo("Finished creating all CVE objects");
@@ -140,7 +171,7 @@ namespace CVETool.BL
                 builder.Append("DoS + ");
             }
             //Code Execution
-            if (param.Contains("execute", StringComparison.CurrentCultureIgnoreCase))
+            if (param.Contains("execute", StringComparison.CurrentCultureIgnoreCase)|| param.Contains("execution", StringComparison.CurrentCultureIgnoreCase))
             {
                 //vulnType += "Code Execution + ";
                 builder.Append("Code Execution + ");
@@ -164,7 +195,7 @@ namespace CVETool.BL
                 builder.Append("SQL injection + ");
             }
             //XSS
-            if (param.Contains("Cross-site scripting (XSS)", StringComparison.CurrentCultureIgnoreCase))
+            if (param.Contains("Cross-site scripting (XSS)", StringComparison.CurrentCultureIgnoreCase) || param.Contains("xss", StringComparison.CurrentCultureIgnoreCase) || param.Contains("Cross site", StringComparison.CurrentCultureIgnoreCase))
             {
                 //vulnType += "XSS + ";
                 builder.Append("XSS + ");
@@ -194,7 +225,7 @@ namespace CVETool.BL
                 builder.Append("Gain Information + ");
             }
             //Gain Privileges
-            if (param.Contains("privilege", StringComparison.CurrentCultureIgnoreCase))
+            if (param.Contains("privilege", StringComparison.CurrentCultureIgnoreCase)|| param.Contains("elevate", StringComparison.CurrentCultureIgnoreCase))
             {
                 //vulnType += "Gain Privileges + ";
                 builder.Append("Gain Privileges + ");
@@ -213,8 +244,11 @@ namespace CVETool.BL
             }
 
 
-            //return vulnType.Substring(0,vulnType.Length-3);
-            return builder.ToString().Substring(0, builder.ToString().Length - 3);
+            if (builder.Length > 3)
+            {
+                return builder.ToString().Substring(0, builder.ToString().Length - 3);
+            }
+            return "N/A";
         }
         //TODO
         private string GetExploit(string param)

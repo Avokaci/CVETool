@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CVETool.DAL
 {
-    public class Database:IDatabase
+    public class Database : IDatabase
     {
         LogWriter logger = new LogWriter();
         string _connectionString;
@@ -51,37 +51,31 @@ namespace CVETool.DAL
             //SaveCVEsToDatabase(cveList);
             _cveList = cveList;
         }
-        
+
         public void SaveCVEsToDatabase()
         {
+            int progressCount = 0;
+
             logger.LogToConsoleProcessInfo("Started inserting all new CVE records into database");
-            foreach (var item in _cveList)
+            foreach (CVE item in _cveList)
             {
                 if (!CheckRecordExists(item.CVEId))
                 {
-                    cmd = new SqlCommand("insert into CVE(CVEId,CWEId,VulnerabilityType,Description," +
-                      "Publishdate,ModificationDate,Score,ExploitExists,Access," +
-                      "Complexity,Authentication,Confidentiality,Integrity,Avaialability) " +
-                                 "values(@CVEId,@CWEId,@VulnerabilityType,@Description," +
-                      "@Publishdate,@ModificationDate,@Score,@ExploitExists,@Access," +
-                      "@Complexity,@Authentication,@Confidentiality,@Integrity,@Avaialability)", con);
-                    cmd.Parameters.AddWithValue("CVEId", item.CVEId);
-                    cmd.Parameters.AddWithValue("CWEId", item.CWEId);
-                    cmd.Parameters.AddWithValue("VulnerabilityType", item.VulnerabilityType);
-                    cmd.Parameters.AddWithValue("Description", item.Description);
-                    cmd.Parameters.AddWithValue("Publishdate", item.PublishDate);
-                    cmd.Parameters.AddWithValue("ModificationDate", item.UpdateDate);
-                    cmd.Parameters.AddWithValue("Score", item.Score);
-                    cmd.Parameters.AddWithValue("ExploitExists", item.ExploitExists);
-                    cmd.Parameters.AddWithValue("Access", item.Access);
-                    cmd.Parameters.AddWithValue("Complexity", item.Complexity);
-                    cmd.Parameters.AddWithValue("Authentication", item.Authentication);
-                    cmd.Parameters.AddWithValue("Confidentiality", item.Confidentiality);
-                    cmd.Parameters.AddWithValue("Integrity", item.Integrity);
-                    cmd.Parameters.AddWithValue("Avaialability", item.Availability);
-                    cmd.ExecuteNonQuery();
+                    if (!CheckRecordModified(item.CVEId, item.UpdateDate))
+                    {
+                        InsertRecord(item);                   
+                    }
+                    else
+                    {
+                        ModifyRecord(item);
+                    }
                 }
-               
+                progressCount++;
+                if (progressCount % 1000 == 0)
+                {
+                    int progressPercentage = (int)Math.Round((double)(progressCount * 100 / _cveList.Count));
+                    logger.LogToConsoleObjectInfo("Creating database records for CVEs: " + progressPercentage + "%");
+                }
             }
             logger.LogToConsoleProcessInfo("Finished inserting all new CVE records into database");
 
@@ -89,11 +83,69 @@ namespace CVETool.DAL
 
         public bool CheckRecordExists(string cVEID)
         {
-            cmd = new SqlCommand("select count(*) from dbo.CVE where CVEId='"+cVEID+"'", con);
+            cmd = new SqlCommand("select count(*) from dbo.CVE where CVEId='" + cVEID + "'", con);
             int counter = Convert.ToInt32(cmd.ExecuteScalar());
             if (counter > 0)
                 return true;
             return false;
+        }
+        public bool CheckRecordModified(string cVEID, string itemModDateString)
+        {         
+            cmd = new SqlCommand("select ModificationDate from dbo.CVE where CVEId='" + cVEID + "'", con);
+            DateTime dbModDate = Convert.ToDateTime(cmd.ExecuteScalar());
+            DateTime itemModDate = Convert.ToDateTime(itemModDateString);
+            string dbModDateString = dbModDate.ToString("s");
+            if (itemModDate > dbModDate && dbModDateString != "0001-01-01T00:00:00") //"0001-01-01T00:00Z" is returned by db when column value couldn't be found -> in this case record does not exist yet
+                return true;
+            return false;
+        }
+        public void InsertRecord(CVE item)
+        {
+            cmd = new SqlCommand("insert into CVE(CVEId,CWEId,VulnerabilityType,Description," +
+                "Publishdate,ModificationDate,Score,ExploitExists,Access," +
+                "Complexity,Authentication,Confidentiality,Integrity,Avaialability) " +
+                           "values(@CVEId,@CWEId,@VulnerabilityType,@Description," +
+                "@Publishdate,@ModificationDate,@Score,@ExploitExists,@Access," +
+                "@Complexity,@Authentication,@Confidentiality,@Integrity,@Avaialability)", con);
+            cmd.Parameters.AddWithValue("CVEId", item.CVEId);
+            cmd.Parameters.AddWithValue("CWEId", item.CWEId);
+            cmd.Parameters.AddWithValue("VulnerabilityType", item.VulnerabilityType);
+            cmd.Parameters.AddWithValue("Description", item.Description);
+            cmd.Parameters.AddWithValue("Publishdate", item.PublishDate);
+            cmd.Parameters.AddWithValue("ModificationDate", item.UpdateDate);
+            cmd.Parameters.AddWithValue("Score", item.Score);
+            cmd.Parameters.AddWithValue("ExploitExists", item.ExploitExists);
+            cmd.Parameters.AddWithValue("Access", item.Access);
+            cmd.Parameters.AddWithValue("Complexity", item.Complexity);
+            cmd.Parameters.AddWithValue("Authentication", item.Authentication);
+            cmd.Parameters.AddWithValue("Confidentiality", item.Confidentiality);
+            cmd.Parameters.AddWithValue("Integrity", item.Integrity);
+            cmd.Parameters.AddWithValue("Avaialability", item.Availability);
+            cmd.ExecuteNonQuery();
+        }
+        public void ModifyRecord(CVE item)
+        {
+            cmd = new SqlCommand("update CVE set " +
+                "CVEId = @CVEId, CWEId=@CWEId,VulnerabilityType=@VulnerabilityType,Description=@Description," +
+                "Publishdate=@Publishdate,ModificationDate=@ModificationDate,Score=@Score,ExploitExists=@ExploitExists," +
+                "Access=@Access,Complexity=@Complexity,Authentication=@Authentication," +
+                "Confidentiality=@Confidentiality, Integrity=@Integrity,Avaialability= @Avaialability " +
+                "where CVEId='" + item.CVEId + "'", con);
+            cmd.Parameters.AddWithValue("CVEId", item.CVEId);
+            cmd.Parameters.AddWithValue("CWEId", item.CWEId);
+            cmd.Parameters.AddWithValue("VulnerabilityType", item.VulnerabilityType);
+            cmd.Parameters.AddWithValue("Description", item.Description);
+            cmd.Parameters.AddWithValue("Publishdate", item.PublishDate);
+            cmd.Parameters.AddWithValue("ModificationDate", item.UpdateDate);
+            cmd.Parameters.AddWithValue("Score", item.Score);
+            cmd.Parameters.AddWithValue("ExploitExists", item.ExploitExists);
+            cmd.Parameters.AddWithValue("Access", item.Access);
+            cmd.Parameters.AddWithValue("Complexity", item.Complexity);
+            cmd.Parameters.AddWithValue("Authentication", item.Authentication);
+            cmd.Parameters.AddWithValue("Confidentiality", item.Confidentiality);
+            cmd.Parameters.AddWithValue("Integrity", item.Integrity);
+            cmd.Parameters.AddWithValue("Avaialability", item.Availability);
+            cmd.ExecuteNonQuery();
         }
 
         public List<CVE> GetAllCVEsFromDB()
