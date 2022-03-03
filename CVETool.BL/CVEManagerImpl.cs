@@ -23,8 +23,8 @@ namespace CVETool.BL
 
         //from scratch
         //duration pulling and loading json files: 0:0:14
-        //duration for creating CVE objects: 0:2:48
-        //duration for creating database records of cve objects: 1:25:14
+        //duration for creating CVE objects: 0:2:48g
+        //duration for creating database records of cve objects: 2:13:14
 
         //files exist, db records exist
         //duration pulling and loading json files: 0:0:2

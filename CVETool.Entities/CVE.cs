@@ -1,26 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CVETool.Entities
 {
+    [DataContract]
     public class CVE
     {
+        [Required]
         private string _CVEId;
+        [Required]
         private string _CWEId;
+        [Required]
         private string _VulnerabilityType;
+        [Required]
         private string _Description;
+        [Required]
         private string _PublishDate;
+        [Required]
         private string _UpdateDate;
+        [Required]
         private double _Score;
+        [Required]
         private string _ExploitExists;
+        [Required]
         private string _Access;
+        [Required]
         private string _Complexity;
+        [Required]
         private string _Authentication;
+        [Required]
         private string _Confidentiality;
+        [Required]
         private string _Integrity;
+        [Required]
         private string _Availability;
 
         public CVE(string cVEId, string cWEId, string vulnerabilityType, 

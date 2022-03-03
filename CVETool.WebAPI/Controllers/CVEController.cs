@@ -122,11 +122,11 @@ namespace CVETool.WebAPI.Controllers
             {
                 var sb = new StringBuilder();
                 List<CVE> cveList = manager.GetAllCVEs();
-                foreach (CVE item in cveList)
-                {
-                    sb.Append(item.ToStringFlat() + "\n");
-                }             
-                return new ObjectResult(sb.ToString()) { StatusCode = 200 };
+                //foreach (CVE item in cveList)
+                //{
+                //    sb.Append(item.ToStringFlat() + "\n");
+                //}             
+                return new ObjectResult(cveList) { StatusCode = 200 };
             }
             catch (Exception)
             {
