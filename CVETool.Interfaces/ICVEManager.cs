@@ -12,6 +12,10 @@ namespace CVETool.Interfaces
         public void SaveCVEsToDatabase();
         public List<CVE> GetAllCVEs();
         public CVE GetSingleCVE(string cveId);
+        public List<CVE> GetAllFilteredCVEs(string attribute, string value);
+        public List<CVE> GetAllYearRangeFilteredCVEs(string startYear, string endYear);
+        public List<CVE> GetAllScoreRangeFilteredCVEs(double startScore, double endScore);
+      
 
 
     }

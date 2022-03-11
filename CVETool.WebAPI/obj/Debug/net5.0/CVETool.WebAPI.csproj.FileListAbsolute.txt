@@ -37,7 +37,6 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\CVETool.WebAPI.AssemblyInfoInputs.cache
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\CVETool.WebAPI.AssemblyInfo.cs
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\CVETool.WebAPI.csproj.CoreCompileInputs.cache
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\CVETool.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\CVETool.WebAPI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\staticwebassets\CVETool.WebAPI.StaticWebAssets.Manifest.cache
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.WebAPI\obj\Debug\net5.0\staticwebassets\CVETool.WebAPI.StaticWebAssets.xml

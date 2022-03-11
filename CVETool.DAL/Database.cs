@@ -178,6 +178,7 @@ namespace CVETool.DAL
             }
         }
 
+        //was intended for searching for single record, but not needed in Frontend as angular mat table already provides this feature
         public CVE GetSingleCVEFromDB(string cveId)
         {
             cmd.CommandText = "SELECT * FROM dbo.CVE where CVEId='" + cveId + "'";
@@ -208,5 +209,104 @@ namespace CVETool.DAL
 
             }
         }
+
+        //for filtering vulns, specific year, exploitexists, access, complexity, authentication, confidentiality, integrity, availability
+        public List<CVE> GetAllFilteredCVEsFromDB(string attribute, string value)
+        {
+            List<CVE> cveList = new List<CVE>();
+            cmd.CommandText = "SELECT * FROM dbo.CVE where " + attribute + " like '%" + value + "%'";
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    CVE item = new CVE(
+                        reader["CVEId"].ToString(),
+                        reader["CWEId"].ToString(),
+                        reader["VulnerabilityType"].ToString(),
+                        reader["Description"].ToString(),
+                        reader["Publishdate"].ToString(),
+                        reader["ModificationDate"].ToString(),
+                        Convert.ToDouble(reader["Score"]),
+                        reader["ExploitExists"].ToString(),
+                        reader["Access"].ToString(),
+                        reader["Complexity"].ToString(),
+                        reader["Authentication"].ToString(),
+                        reader["Confidentiality"].ToString(),
+                        reader["Integrity"].ToString(),
+                        reader["Avaialability"].ToString()
+                        );
+                    cveList.Add(item);
+                }
+                return cveList;
+            }
+        }
+       
+        //for filtering CVEs between year range
+        public List<CVE> GetAllYearRangeFilteredCVEsFromDB(string startYear, string endYear)
+        {
+            List<CVE> cveList = new List<CVE>();
+            cmd.CommandText = "SELECT * FROM dbo.CVE where Publishdate between '" + startYear + "-00-00T00:00Z' and '" + endYear + "-00-00T00:00Z'";
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    CVE item = new CVE(
+                    reader["CVEId"].ToString(),
+                    reader["CWEId"].ToString(),
+                    reader["VulnerabilityType"].ToString(),
+                    reader["Description"].ToString(),
+                    reader["Publishdate"].ToString(),
+                    reader["ModificationDate"].ToString(),
+                    Convert.ToDouble(reader["Score"]),
+                    reader["ExploitExists"].ToString(),
+                    reader["Access"].ToString(),
+                    reader["Complexity"].ToString(),
+                    reader["Authentication"].ToString(),
+                    reader["Confidentiality"].ToString(),
+                    reader["Integrity"].ToString(),
+                    reader["Avaialability"].ToString()
+                    );
+                    cveList.Add(item);
+
+
+                }
+                return cveList;
+            }
+        }
+
+        //for filtering CVEs score range
+        public List<CVE> GetAllScoreRangeFilteredCVEsFromDB(double startScore, double endScore)
+        {
+            List<CVE> cveList = new List<CVE>();
+            cmd.CommandText = "SELECT * FROM dbo.CVE where Score between " + Convert.ToDouble( startScore) + " and " + Convert.ToDouble(endScore);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    CVE item = new CVE(
+                    reader["CVEId"].ToString(),
+                    reader["CWEId"].ToString(),
+                    reader["VulnerabilityType"].ToString(),
+                    reader["Description"].ToString(),
+                    reader["Publishdate"].ToString(),
+                    reader["ModificationDate"].ToString(),
+                    Convert.ToDouble(reader["Score"]),
+                    reader["ExploitExists"].ToString(),
+                    reader["Access"].ToString(),
+                    reader["Complexity"].ToString(),
+                    reader["Authentication"].ToString(),
+                    reader["Confidentiality"].ToString(),
+                    reader["Integrity"].ToString(),
+                    reader["Avaialability"].ToString()
+                    );
+                    cveList.Add(item);
+
+
+                }
+                return cveList;
+            }
+        }
+
+
     }
 }

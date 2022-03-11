@@ -120,12 +120,7 @@ namespace CVETool.WebAPI.Controllers
         {
             try
             {
-                var sb = new StringBuilder();
-                List<CVE> cveList = manager.GetAllCVEs();
-                //foreach (CVE item in cveList)
-                //{
-                //    sb.Append(item.ToStringFlat() + "\n");
-                //}             
+                List<CVE> cveList = manager.GetAllCVEs();               
                 return new ObjectResult(cveList) { StatusCode = 200 };
             }
             catch (Exception)
@@ -155,6 +150,62 @@ namespace CVETool.WebAPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("/cves/filtered/{attribute}/{value}")]
+        [ValidateModelState]
+        [SwaggerOperation("GetAllFilteredCVEs")]
+        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        public virtual IActionResult GetAllFilteredCVEs([FromRoute][Required] string attribute, [FromRoute][Required] string value)
+        {
+            try
+            {
+                List<CVE> cveList = manager.GetAllFilteredCVEs(attribute,value);
+                return new ObjectResult(cveList) { StatusCode = 200 };
+            }
+            catch (Exception)
+            {
+                return new ObjectResult("Error") { StatusCode = 400 };
+            }
+        }
+
+        [HttpGet]
+        [Route("/cves/filtered/yearRange/{startYear}/{endYear}")]
+        [ValidateModelState]
+        [SwaggerOperation("GetAllYearRangeFilteredCVEs")]
+        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        public virtual IActionResult GetAllYearRangeFilteredCVEs([FromRoute][Required] string startYear, [FromRoute][Required] string endYear)
+        {
+            try
+            {
+                List<CVE> cveList = manager.GetAllYearRangeFilteredCVEs(startYear,endYear);
+                return new ObjectResult(cveList) { StatusCode = 200 };
+            }
+            catch (Exception)
+            {
+                return new ObjectResult("Error") { StatusCode = 400 };
+            }
+        }
+
+        [HttpGet]
+        [Route("/cves/filtered/scoreRange/{startScore}/{endScore}")]
+        [ValidateModelState]
+        [SwaggerOperation("GetAllYearRangeFilteredCVEs")]
+        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        public virtual IActionResult GetAllScoreRangeFilteredCVEs([FromRoute][Required] double startScore, [FromRoute][Required] double endScore)
+        {
+            try
+            {
+                List<CVE> cveList = manager.GetAllScoreRangeFilteredCVEs(startScore, endScore);
+                return new ObjectResult(cveList) { StatusCode = 200 };
+            }
+            catch (Exception)
+            {
+                return new ObjectResult("Error") { StatusCode = 400 };
+            }
+        }
 
     }
 }

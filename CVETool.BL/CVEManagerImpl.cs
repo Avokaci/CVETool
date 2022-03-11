@@ -320,6 +320,26 @@ namespace CVETool.BL
             return cve;
         }
 
+        public List<CVE> GetAllFilteredCVEs(string attribute, string value)
+        {
+            db = new Database(CVEs);
+            List<CVE> cveList = db.GetAllFilteredCVEsFromDB(attribute,value);
+            return cveList;
+        }
+
+        public List<CVE> GetAllYearRangeFilteredCVEs(string startYear, string endYear)
+        {
+            db = new Database(CVEs);
+            List<CVE> cveList = db.GetAllYearRangeFilteredCVEsFromDB(startYear, endYear);
+            return cveList;
+        }
+
+        public List<CVE> GetAllScoreRangeFilteredCVEs(double startScore, double endScore)
+        {
+            db = new Database(CVEs);
+            List<CVE> cveList = db.GetAllScoreRangeFilteredCVEsFromDB(startScore, endScore);
+            return cveList;
+        }
     }
 }
 
