@@ -170,7 +170,7 @@ namespace CVETool.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("/cves/filtered/yearRange/{startYear}/{endYear}")]
+        [Route("/cves/filtered/year/{startYear}/range/{endYear}")]
         [ValidateModelState]
         [SwaggerOperation("GetAllYearRangeFilteredCVEs")]
         [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
@@ -189,9 +189,9 @@ namespace CVETool.WebAPI.Controllers
         }
 
         [HttpGet]
-        [Route("/cves/filtered/scoreRange/{startScore}/{endScore}")]
+        [Route("/cves/filtered/score/{startScore}/range/{endScore}")]
         [ValidateModelState]
-        [SwaggerOperation("GetAllYearRangeFilteredCVEs")]
+        [SwaggerOperation("GetAllScoreRangeFilteredCVEs")]
         [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
         [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
         public virtual IActionResult GetAllScoreRangeFilteredCVEs([FromRoute][Required] double startScore, [FromRoute][Required] double endScore)

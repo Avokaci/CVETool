@@ -210,7 +210,7 @@ namespace CVETool.DAL
             }
         }
 
-        //for filtering vulns, specific year, exploitexists, access, complexity, authentication, confidentiality, integrity, availability
+        //for filtering vulns, (exploitexists), access, complexity, authentication, confidentiality, integrity, availability
         public List<CVE> GetAllFilteredCVEsFromDB(string attribute, string value)
         {
             List<CVE> cveList = new List<CVE>();
@@ -245,7 +245,7 @@ namespace CVETool.DAL
         public List<CVE> GetAllYearRangeFilteredCVEsFromDB(string startYear, string endYear)
         {
             List<CVE> cveList = new List<CVE>();
-            cmd.CommandText = "SELECT * FROM dbo.CVE where Publishdate between '" + startYear + "-00-00T00:00Z' and '" + endYear + "-00-00T00:00Z'";
+            cmd.CommandText = "SELECT * FROM dbo.CVE where Publishdate between '" + startYear + "-00-00T00:00Z' and '" + endYear + "-12-31T00:00Z'";
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())

@@ -216,7 +216,7 @@ namespace CVETool.BL
             if (param.Contains("bypass", StringComparison.CurrentCultureIgnoreCase))
             {
                 //vulnType += "Bypas something + ";
-                builder.Append("Bypas something + ");
+                builder.Append("Bypass something + ");
             }
             //Gain Information   word information doesnt match every record
             if (param.Contains("information", StringComparison.CurrentCultureIgnoreCase))
