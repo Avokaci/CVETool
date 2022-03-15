@@ -9,3 +9,4 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.Entities.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\ref\CVETool.Entities.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.Entities.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.Entities.csproj.AssemblyReference.cache

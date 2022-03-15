@@ -19,11 +19,7 @@ namespace CVETool.Utilities
             Console.Write("\r\n" + $"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}" + $"  : {logMessage}");
 
         }
-        public void LogToFile(string logMessage, TextWriter w)
-        {
-            w.Write("\r\n" + $"{DateTime.Now.ToLongTimeString()} {DateTime.Now.ToLongDateString()}" + $"  : {logMessage}");
-
-        }
+   
 
         public void DumpLog(StreamReader r)
         {

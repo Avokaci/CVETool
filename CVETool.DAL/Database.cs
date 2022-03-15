@@ -39,7 +39,7 @@ namespace CVETool.DAL
             //                    Publishdate VARCHAR(255),
             //                    ModificationDate VARCHAR(255),
             //                    Score float,
-            //                    ExploitExists VARCHAR(255),
+            //                    SearchExploit VARCHAR(255),
             //                    Access VARCHAR(255),
             //                    Complexity VARCHAR(255),
             //                    Authentication VARCHAR(255),
@@ -102,10 +102,10 @@ namespace CVETool.DAL
         public void InsertRecord(CVE item)
         {
             cmd = new SqlCommand("insert into CVE(CVEId,CWEId,VulnerabilityType,Description," +
-                "Publishdate,ModificationDate,Score,ExploitExists,Access," +
+                "Publishdate,ModificationDate,Score,SearchExploit,Access," +
                 "Complexity,Authentication,Confidentiality,Integrity,Avaialability) " +
                            "values(@CVEId,@CWEId,@VulnerabilityType,@Description," +
-                "@Publishdate,@ModificationDate,@Score,@ExploitExists,@Access," +
+                "@Publishdate,@ModificationDate,@Score,@SearchExploit,@Access," +
                 "@Complexity,@Authentication,@Confidentiality,@Integrity,@Avaialability)", con);
             cmd.Parameters.AddWithValue("CVEId", item.CVEId);
             cmd.Parameters.AddWithValue("CWEId", item.CWEId);
@@ -114,7 +114,7 @@ namespace CVETool.DAL
             cmd.Parameters.AddWithValue("Publishdate", item.PublishDate);
             cmd.Parameters.AddWithValue("ModificationDate", item.UpdateDate);
             cmd.Parameters.AddWithValue("Score", item.Score);
-            cmd.Parameters.AddWithValue("ExploitExists", item.ExploitExists);
+            cmd.Parameters.AddWithValue("SearchExploit", item.SearchExploit);
             cmd.Parameters.AddWithValue("Access", item.Access);
             cmd.Parameters.AddWithValue("Complexity", item.Complexity);
             cmd.Parameters.AddWithValue("Authentication", item.Authentication);
@@ -127,7 +127,7 @@ namespace CVETool.DAL
         {
             cmd = new SqlCommand("update CVE set " +
                 "CVEId = @CVEId, CWEId=@CWEId,VulnerabilityType=@VulnerabilityType,Description=@Description," +
-                "Publishdate=@Publishdate,ModificationDate=@ModificationDate,Score=@Score,ExploitExists=@ExploitExists," +
+                "Publishdate=@Publishdate,ModificationDate=@ModificationDate,Score=@Score,SearchExploit=@SearchExploit," +
                 "Access=@Access,Complexity=@Complexity,Authentication=@Authentication," +
                 "Confidentiality=@Confidentiality, Integrity=@Integrity,Avaialability= @Avaialability " +
                 "where CVEId='" + item.CVEId + "'", con);
@@ -138,7 +138,7 @@ namespace CVETool.DAL
             cmd.Parameters.AddWithValue("Publishdate", item.PublishDate);
             cmd.Parameters.AddWithValue("ModificationDate", item.UpdateDate);
             cmd.Parameters.AddWithValue("Score", item.Score);
-            cmd.Parameters.AddWithValue("ExploitExists", item.ExploitExists);
+            cmd.Parameters.AddWithValue("SearchExploit", item.SearchExploit);
             cmd.Parameters.AddWithValue("Access", item.Access);
             cmd.Parameters.AddWithValue("Complexity", item.Complexity);
             cmd.Parameters.AddWithValue("Authentication", item.Authentication);
@@ -164,7 +164,7 @@ namespace CVETool.DAL
                         reader["Publishdate"].ToString(),
                         reader["ModificationDate"].ToString(),
                         Convert.ToDouble( reader["Score"]),
-                        reader["ExploitExists"].ToString(),
+                        reader["SearchExploit"].ToString(),
                         reader["Access"].ToString(),
                         reader["Complexity"].ToString(),
                         reader["Authentication"].ToString(),
@@ -195,7 +195,7 @@ namespace CVETool.DAL
                        reader["Publishdate"].ToString(),
                        reader["ModificationDate"].ToString(),
                        Convert.ToDouble(reader["Score"]),
-                       reader["ExploitExists"].ToString(),
+                       reader["SearchExploit"].ToString(),
                        reader["Access"].ToString(),
                        reader["Complexity"].ToString(),
                        reader["Authentication"].ToString(),
@@ -210,7 +210,7 @@ namespace CVETool.DAL
             }
         }
 
-        //for filtering vulns, (exploitexists), access, complexity, authentication, confidentiality, integrity, availability
+        //for filtering vulns, (SearchExploit), access, complexity, authentication, confidentiality, integrity, availability
         public List<CVE> GetAllFilteredCVEsFromDB(string attribute, string value)
         {
             List<CVE> cveList = new List<CVE>();
@@ -227,7 +227,7 @@ namespace CVETool.DAL
                         reader["Publishdate"].ToString(),
                         reader["ModificationDate"].ToString(),
                         Convert.ToDouble(reader["Score"]),
-                        reader["ExploitExists"].ToString(),
+                        reader["SearchExploit"].ToString(),
                         reader["Access"].ToString(),
                         reader["Complexity"].ToString(),
                         reader["Authentication"].ToString(),
@@ -258,7 +258,7 @@ namespace CVETool.DAL
                     reader["Publishdate"].ToString(),
                     reader["ModificationDate"].ToString(),
                     Convert.ToDouble(reader["Score"]),
-                    reader["ExploitExists"].ToString(),
+                    reader["SearchExploit"].ToString(),
                     reader["Access"].ToString(),
                     reader["Complexity"].ToString(),
                     reader["Authentication"].ToString(),
@@ -291,7 +291,7 @@ namespace CVETool.DAL
                     reader["Publishdate"].ToString(),
                     reader["ModificationDate"].ToString(),
                     Convert.ToDouble(reader["Score"]),
-                    reader["ExploitExists"].ToString(),
+                    reader["SearchExploit"].ToString(),
                     reader["Access"].ToString(),
                     reader["Complexity"].ToString(),
                     reader["Authentication"].ToString(),

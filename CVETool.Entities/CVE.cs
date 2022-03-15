@@ -26,7 +26,7 @@ namespace CVETool.Entities
         [Required]
         private double _Score;
         [Required]
-        private string _ExploitExists;
+        private string _SearchExploit;
         [Required]
         private string _Access;
         [Required]
@@ -42,7 +42,7 @@ namespace CVETool.Entities
 
         public CVE(string cVEId, string cWEId, string vulnerabilityType, 
             string description, string publishDate, string updateDate, double score, 
-            string exploitExists, string access, string complexity, 
+            string searchExploit, string access, string complexity, 
             string authentication, string confidentiality, 
             string integrity, string availability)
         {
@@ -53,7 +53,7 @@ namespace CVETool.Entities
             _PublishDate = publishDate;
             _UpdateDate = updateDate;
             _Score = score;
-            _ExploitExists = exploitExists;
+            _SearchExploit = searchExploit;
             _Access = access;
             _Complexity = complexity;
             _Authentication = authentication;
@@ -68,7 +68,7 @@ namespace CVETool.Entities
         public string PublishDate { get => _PublishDate; set => _PublishDate = value; }
         public string UpdateDate { get => _UpdateDate; set => _UpdateDate = value; }
         public double Score { get => _Score; set => _Score = value; }
-        public string ExploitExists { get => _ExploitExists; set => _ExploitExists = value; }
+        public string SearchExploit { get => _SearchExploit; set => _SearchExploit = value; }
         public string Access { get => _Access; set => _Access = value; }
         public string Complexity { get => _Complexity; set => _Complexity = value; }
         public string Authentication { get => _Authentication; set => _Authentication = value; }
@@ -87,7 +87,7 @@ namespace CVETool.Entities
             sb.Append("  PublishDate: ").Append(PublishDate).Append("\n");
             sb.Append("  UpdateDate: ").Append(UpdateDate).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
-            sb.Append("  ExploitExists: ").Append(ExploitExists).Append("\n");
+            sb.Append("  SearchExploit: ").Append(SearchExploit).Append("\n");
             sb.Append("  Access: ").Append(Access).Append("\n");
             sb.Append("  Complexity: ").Append(Complexity).Append("\n");
             sb.Append("  Authentication: ").Append(Authentication).Append("\n");
@@ -107,7 +107,7 @@ namespace CVETool.Entities
             sb.Append("  PublishDate: ").Append(PublishDate).Append("; ");
             sb.Append("  UpdateDate: ").Append(UpdateDate).Append("; ");
             sb.Append("  Score: ").Append(Score).Append("; ");
-            sb.Append("  ExploitExists: ").Append(ExploitExists).Append("; ");
+            sb.Append("  SearchExploit: ").Append(SearchExploit).Append("; ");
             sb.Append("  Access: ").Append(Access).Append("; ");
             sb.Append("  Complexity: ").Append(Complexity).Append("; ");
             sb.Append("  Authentication: ").Append(Authentication).Append("; ");

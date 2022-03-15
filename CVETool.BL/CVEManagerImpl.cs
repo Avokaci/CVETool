@@ -23,12 +23,10 @@ namespace CVETool.BL
 
         //from scratch
         //duration pulling and loading json files: 0:0:14
-        //duration for creating CVE objects: 0:2:48g
-        //duration for creating database records of cve objects: 2:13:14
+        //duration for creating CVE objects: 0:14:7
+        //duration for creating database records of cve objects: 2:45:33
 
-        //files exist, db records exist
-        //duration pulling and loading json files: 0:0:2
-        //duration for creating CVE objects: 0:2:40
+  
 
 
         public void AutoInit()
@@ -83,6 +81,7 @@ namespace CVETool.BL
                     string json = r.ReadToEnd();
                     import = JsonConvert.DeserializeObject<JSONImport>(json);
 
+
                     var year = import.CVE_Items[0].cve.CVE_data_meta.ID.Substring(4, 4);
                     logger.LogToConsoleProcessInfo("Started creating CVE objects for year " + year);
                     for (int i = 0; i < import.CVE_Items.Count; i++)
@@ -101,28 +100,185 @@ namespace CVETool.BL
                         string conf = "N/A";
                         string integ = "N/A";
                         string avail = "N/A";
+                        //Cveid
                         try
                         {
-                            CVEId = import.CVE_Items[i].cve.CVE_data_meta.ID;                       
-                            CWEId = import.CVE_Items[i].cve.problemtype.problemtype_data[0].description[0].value;
-                            description = import.CVE_Items[i].cve.description.description_data[0].value;
-                            vulnType = GetVulnType(description);
-                            publishDate = import.CVE_Items[i].publishedDate;
-                            updateDate = import.CVE_Items[i].lastModifiedDate;
-                            score = Convert.ToDouble(import.CVE_Items[i].impact.baseMetricV2.cvssV2.baseScore);
-                            exploit = GetExploit(CVEId);
-                            access = import.CVE_Items[i].impact.baseMetricV2.cvssV2.accessVector;
-                            complexity = import.CVE_Items[i].impact.baseMetricV2.cvssV2.accessComplexity;
-                            auth = import.CVE_Items[i].impact.baseMetricV2.cvssV2.authentication;
-                            conf = import.CVE_Items[i].impact.baseMetricV2.cvssV2.confidentialityImpact;
-                            integ = import.CVE_Items[i].impact.baseMetricV2.cvssV2.integrityImpact;
-                            avail = import.CVE_Items[i].impact.baseMetricV2.cvssV2.availabilityImpact;
+                            CVEId = import.CVE_Items[i].cve.CVE_data_meta.ID;                                                
                         }
-                        catch (Exception)  //for faulty records
+                        catch (Exception ex)  
                         {
-
-                            continue;
+                            CVEId = "N/A";                       
                         }
+                        try
+                        {
+                            CWEId = import.CVE_Items[i].cve.problemtype.problemtype_data[0].description[0].value;
+                           
+                        }
+                        catch (Exception)
+                        {
+                            CWEId = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " +CVEId + " Failed initializing cweid");
+                            }
+                        }
+                        try
+                        {
+                            description = import.CVE_Items[i].cve.description.description_data[0].value;
+                          
+                        }
+                        catch (Exception)
+                        {
+                            description = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing description");
+                            }
+                        }
+                        try
+                        {
+                            vulnType = GetVulnType(description);
+                          
+                        }
+                        catch (Exception)
+                        {
+                            vulnType = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing vulnType");
+                            }
+                        }
+                        try
+                        {
+                            publishDate = import.CVE_Items[i].publishedDate;
+                         
+                        }
+                        catch (Exception)
+                        {
+                            publishDate = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing publishDate");
+                            }
+                        }
+                        try
+                        {
+                            updateDate = import.CVE_Items[i].lastModifiedDate;
+                            
+                        }
+                        catch (Exception)
+                        {
+                            updateDate = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing updateDate");
+                            }
+                        }
+                        try
+                        {
+                            score = Convert.ToDouble(import.CVE_Items[i].impact.baseMetricV2.cvssV2.baseScore);
+                          
+                        }
+                        catch (Exception)
+                        {
+                            score = 0;
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing score");
+                            }
+                        }
+                        try
+                        {
+                            exploit = "https://www.google.at/search?q="+CVEId+"+exploit";
+                         
+                        }
+                        catch (Exception)
+                        {
+                            exploit = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing exploit");
+                            }
+                        }
+                        try
+                        {
+                            access = import.CVE_Items[i].impact.baseMetricV2.cvssV2.accessVector;
+                          
+                        }
+                        catch (Exception)
+                        {
+                            access = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing access");
+                            }
+                        }
+                        try
+                        {
+                            complexity = import.CVE_Items[i].impact.baseMetricV2.cvssV2.accessComplexity;
+                           
+                        }
+                        catch (Exception)
+                        {
+                            complexity = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing complexity");
+                            }
+                        }
+                        try
+                        {
+                            auth = import.CVE_Items[i].impact.baseMetricV2.cvssV2.authentication;
+                           
+                        }
+                        catch (Exception)
+                        {
+                            auth = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing auth");
+                            }
+                        }
+                        try
+                        {
+                            conf = import.CVE_Items[i].impact.baseMetricV2.cvssV2.confidentialityImpact;
+                           
+                        }
+                        catch (Exception)
+                        {
+                            conf = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing conf");
+                            }
+                        }
+                        try
+                        {
+                            integ = import.CVE_Items[i].impact.baseMetricV2.cvssV2.integrityImpact;
+                        }
+                        catch (Exception)
+                        {
+                            integ = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing integ");
+                            }
+                        }
+                        try
+                        {
+                            avail = import.CVE_Items[i].impact.baseMetricV2.cvssV2.availabilityImpact;
+
+                        }
+                        catch (Exception)
+                        {
+                            avail = "N/A";
+                            using (StreamWriter writer = File.AppendText(@"D:\errorLogs\creationError.txt"))
+                            {
+                                writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing avail");
+                            }
+                        }
+                        
+
 
                         CVE vuln = new CVE(
                             CVEId,
@@ -250,11 +406,7 @@ namespace CVETool.BL
             }
             return "N/A";
         }
-        //TODO
-        private string GetExploit(string param)
-        {
-            return "N/A";
-        }
+      
 
         private void PullCurrentYearRecords()
         {
