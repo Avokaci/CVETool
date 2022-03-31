@@ -3,10 +3,8 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVE
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\ref\CVETool.DAL.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.DAL.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.DAL.Interfaces.dll
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Entities.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Utilities.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.DAL.Interfaces.pdb
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Entities.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.Utilities.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\CVETool.DAL.csproj.AssemblyReference.cache
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\CVETool.DAL.GeneratedMSBuildEditorConfig.editorconfig
@@ -17,3 +15,5 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\CVE
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\CVETool.DAL.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\ref\CVETool.DAL.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\obj\Debug\net5.0\CVETool.DAL.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.BL.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL\bin\Debug\net5.0\CVETool.BL.Entities.pdb

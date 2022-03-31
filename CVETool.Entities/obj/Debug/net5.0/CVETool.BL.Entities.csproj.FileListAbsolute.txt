@@ -1,0 +1,12 @@
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\bin\Debug\net5.0\CVETool.BL.Entities.deps.json
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\bin\Debug\net5.0\CVETool.BL.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\bin\Debug\net5.0\ref\CVETool.BL.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\bin\Debug\net5.0\CVETool.BL.Entities.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.csproj.AssemblyReference.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.AssemblyInfoInputs.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.AssemblyInfo.cs
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.csproj.CoreCompileInputs.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\ref\CVETool.BL.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Entities\obj\Debug\net5.0\CVETool.BL.Entities.pdb

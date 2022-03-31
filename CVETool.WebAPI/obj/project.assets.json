@@ -257,24 +257,6 @@
           }
         }
       },
-      "CVETool.BL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "CVETool.BL.Interfaces": "1.0.0",
-          "CVETool.DAL": "1.0.0",
-          "CVETool.Entities": "1.0.0",
-          "CVETool.Utilities": "1.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
-          "Newtonsoft.Json": "13.0.1"
-        },
-        "compile": {
-          "bin/placeholder/CVETool.BL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CVETool.BL.dll": {}
-        }
-      },
       "CVETool.BL.Interfaces/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -288,21 +270,22 @@
           "bin/placeholder/CVETool.BL.Interfaces.dll": {}
         }
       },
-      "CVETool.DAL/1.0.0": {
+      "CVETool.BL.Logic/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "CVETool.DAL.Interfaces": "1.0.0",
+          "CVETool.BL.Interfaces": "1.0.0",
+          "CVETool.DAL.Logic": "1.0.0",
           "CVETool.Entities": "1.0.0",
           "CVETool.Utilities": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
-          "System.Data.SqlClient": "4.8.3"
+          "Newtonsoft.Json": "13.0.1"
         },
         "compile": {
-          "bin/placeholder/CVETool.DAL.dll": {}
+          "bin/placeholder/CVETool.BL.Logic.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CVETool.DAL.dll": {}
+          "bin/placeholder/CVETool.BL.Logic.dll": {}
         }
       },
       "CVETool.DAL.Interfaces/1.0.0": {
@@ -316,6 +299,23 @@
         },
         "runtime": {
           "bin/placeholder/CVETool.DAL.Interfaces.dll": {}
+        }
+      },
+      "CVETool.DAL.Logic/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "CVETool.DAL.Interfaces": "1.0.0",
+          "CVETool.Entities": "1.0.0",
+          "CVETool.Utilities": "1.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "System.Data.SqlClient": "4.8.3"
+        },
+        "compile": {
+          "bin/placeholder/CVETool.DAL.Logic.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CVETool.DAL.Logic.dll": {}
         }
       },
       "CVETool.Entities/1.0.0": {
@@ -929,25 +929,25 @@
         "version.txt"
       ]
     },
-    "CVETool.BL/1.0.0": {
-      "type": "project",
-      "path": "../CVETool.BL/CVETool.BL.csproj",
-      "msbuildProject": "../CVETool.BL/CVETool.BL.csproj"
-    },
     "CVETool.BL.Interfaces/1.0.0": {
       "type": "project",
       "path": "../CVETool.Interfaces/CVETool.BL.Interfaces.csproj",
       "msbuildProject": "../CVETool.Interfaces/CVETool.BL.Interfaces.csproj"
     },
-    "CVETool.DAL/1.0.0": {
+    "CVETool.BL.Logic/1.0.0": {
       "type": "project",
-      "path": "../CVETool.DAL/CVETool.DAL.csproj",
-      "msbuildProject": "../CVETool.DAL/CVETool.DAL.csproj"
+      "path": "../CVETool.BL/CVETool.BL.Logic.csproj",
+      "msbuildProject": "../CVETool.BL/CVETool.BL.Logic.csproj"
     },
     "CVETool.DAL.Interfaces/1.0.0": {
       "type": "project",
       "path": "../CVETool.DAL.Interfaces/CVETool.DAL.Interfaces.csproj",
       "msbuildProject": "../CVETool.DAL.Interfaces/CVETool.DAL.Interfaces.csproj"
+    },
+    "CVETool.DAL.Logic/1.0.0": {
+      "type": "project",
+      "path": "../CVETool.DAL/CVETool.DAL.Logic.csproj",
+      "msbuildProject": "../CVETool.DAL/CVETool.DAL.Logic.csproj"
     },
     "CVETool.Entities/1.0.0": {
       "type": "project",
@@ -962,7 +962,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "CVETool.BL >= 1.0.0",
+      "CVETool.BL.Logic >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3",
       "Swashbuckle.AspNetCore.Annotations >= 6.2.3"
     ]
@@ -973,9 +973,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\CVETool.WebAPI.csproj",
-      "projectName": "CVETool.WebAPI",
-      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\CVETool.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\CVETool.SL.WebAPI.csproj",
+      "projectName": "CVETool.SL.WebAPI",
+      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\CVETool.SL.WebAPI.csproj",
       "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
@@ -994,8 +994,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj": {
-              "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj"
+            "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj": {
+              "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj"
             }
           }
         }

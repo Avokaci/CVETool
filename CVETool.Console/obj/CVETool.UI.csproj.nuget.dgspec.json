@@ -4,12 +4,12 @@
     "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Console\\CVETool.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj": {
+    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj",
-        "projectName": "CVETool.BL",
-        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj",
+        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj",
+        "projectName": "CVETool.BL.Logic",
+        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj",
         "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\obj\\",
         "projectStyle": "PackageReference",
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj": {
-                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj"
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj"
               },
               "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj": {
                 "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj"
@@ -105,8 +105,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj": {
-                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.csproj"
+              "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj": {
+                "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.BL\\CVETool.BL.Logic.csproj"
               }
             }
           }
@@ -197,12 +197,12 @@
         }
       }
     },
-    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj": {
+    "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
-        "projectName": "CVETool.DAL",
-        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj",
+        "projectName": "CVETool.DAL.Logic",
+        "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj",
         "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\obj\\",
         "projectStyle": "PackageReference",

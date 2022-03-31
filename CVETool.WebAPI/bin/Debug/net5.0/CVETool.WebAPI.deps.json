@@ -33,7 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "CVETool.WebAPI/1.0.0": {
         "dependencies": {
-          "CVETool.BL": "1.0.0",
+          "CVETool.BL.Logic": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Swashbuckle.AspNetCore.Annotations": "6.2.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -505,65 +505,65 @@
         }
       },
       "System.Security.Principal.Windows/4.7.0": {},
-      "CVETool.BL/1.0.0": {
+      "CVETool.BL.Entities/1.0.0": {
+        "runtime": {
+          "CVETool.BL.Entities.dll": {}
+        },
+        "compile": {
+          "CVETool.BL.Entities.dll": {}
+        }
+      },
+      "CVETool.BL.Interfaces/1.0.0": {
         "dependencies": {
+          "CVETool.BL.Entities": "1.0.0"
+        },
+        "runtime": {
+          "CVETool.BL.Interfaces.dll": {}
+        },
+        "compile": {
+          "CVETool.BL.Interfaces.dll": {}
+        }
+      },
+      "CVETool.BL.Logic/1.0.0": {
+        "dependencies": {
+          "CVETool.BL.Entities": "1.0.0",
           "CVETool.BL.Interfaces": "1.0.0",
-          "CVETool.DAL": "1.0.0",
-          "CVETool.Entities": "1.0.0",
+          "CVETool.DAL.Logic": "1.0.0",
           "CVETool.Utilities": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "CVETool.BL.dll": {}
+          "CVETool.BL.Logic.dll": {}
         },
         "compile": {
-          "CVETool.BL.dll": {}
+          "CVETool.BL.Logic.dll": {}
         }
       },
-      "CVETool.BL.Interfaces/1.0.0": {
+      "CVETool.DAL.Interfaces/1.0.0": {
         "dependencies": {
-          "CVETool.Entities": "1.0.0"
+          "CVETool.BL.Entities": "1.0.0"
         },
         "runtime": {
-          "CVETool.BL.Interfaces.dll": {}
+          "CVETool.DAL.Interfaces.dll": {}
         },
         "compile": {
-          "CVETool.BL.Interfaces.dll": {}
+          "CVETool.DAL.Interfaces.dll": {}
         }
       },
-      "CVETool.DAL/1.0.0": {
+      "CVETool.DAL.Logic/1.0.0": {
         "dependencies": {
+          "CVETool.BL.Entities": "1.0.0",
           "CVETool.DAL.Interfaces": "1.0.0",
-          "CVETool.Entities": "1.0.0",
           "CVETool.Utilities": "1.0.0",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
           "System.Data.SqlClient": "4.8.3"
         },
         "runtime": {
-          "CVETool.DAL.dll": {}
+          "CVETool.DAL.Logic.dll": {}
         },
         "compile": {
-          "CVETool.DAL.dll": {}
-        }
-      },
-      "CVETool.DAL.Interfaces/1.0.0": {
-        "dependencies": {
-          "CVETool.Entities": "1.0.0"
-        },
-        "runtime": {
-          "CVETool.DAL.Interfaces.dll": {}
-        },
-        "compile": {
-          "CVETool.DAL.Interfaces.dll": {}
-        }
-      },
-      "CVETool.Entities/1.0.0": {
-        "runtime": {
-          "CVETool.Entities.dll": {}
-        },
-        "compile": {
-          "CVETool.Entities.dll": {}
+          "CVETool.DAL.Logic.dll": {}
         }
       },
       "CVETool.Utilities/1.0.0": {
@@ -2414,7 +2414,7 @@
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
-    "CVETool.BL/1.0.0": {
+    "CVETool.BL.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2424,7 +2424,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CVETool.DAL/1.0.0": {
+    "CVETool.BL.Logic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -2434,7 +2434,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CVETool.Entities/1.0.0": {
+    "CVETool.DAL.Logic/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

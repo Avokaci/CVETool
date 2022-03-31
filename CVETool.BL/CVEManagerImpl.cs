@@ -33,7 +33,7 @@ namespace CVETool.BL
         {
             //pulling and loading json files
             var watch = System.Diagnostics.Stopwatch.StartNew();         
-            filesNew = LoadJson();
+            LoadJson();
             watch.Stop();
             TimeSpan timeSpan = watch.Elapsed;
             logger.LogToConsoleProcessInfo("Elapsed time for pulling and loading JSON files: " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
@@ -55,7 +55,7 @@ namespace CVETool.BL
 
 
         }
-        public string[] LoadJson()
+        public void LoadJson()
         {
 
             string filepath = @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles\";
@@ -70,7 +70,6 @@ namespace CVETool.BL
                 PullCurrentYearRecords();
             }
             filesNew = Directory.GetFiles(filepath, "*.json", SearchOption.AllDirectories);
-            return filesNew;
         }
         public void CreateCVEs()
         {
@@ -100,7 +99,8 @@ namespace CVETool.BL
                         string conf = "N/A";
                         string integ = "N/A";
                         string avail = "N/A";
-                        //Cveid
+
+                        #region Initialization
                         try
                         {
                             CVEId = import.CVE_Items[i].cve.CVE_data_meta.ID;                                                
@@ -277,7 +277,8 @@ namespace CVETool.BL
                                 writer.WriteLine("Error while trying to create CVE with ID: " + CVEId + " Failed initializing avail");
                             }
                         }
-                        
+                        #endregion
+
 
 
                         CVE vuln = new CVE(

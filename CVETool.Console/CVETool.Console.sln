@@ -5,19 +5,19 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.UI", "CVETool.UI.csproj", "{F624FAE3-7FAD-475B-9915-133AFAA19DA7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL", "..\CVETool.BL\CVETool.BL.csproj", "{D21DEFA9-FC12-41A5-800F-EB9B81523B2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL.Logic", "..\CVETool.BL\CVETool.BL.Logic.csproj", "{D21DEFA9-FC12-41A5-800F-EB9B81523B2A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL.Interfaces", "..\CVETool.Interfaces\CVETool.BL.Interfaces.csproj", "{8AAAAA38-7DE6-4334-9FED-4642DA19717C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.Entities", "..\CVETool.Entities\CVETool.Entities.csproj", "{14EA687A-20DF-49BE-828E-8C7CB755D5A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL", "..\CVETool.DAL\CVETool.DAL.csproj", "{0AF2442E-DC54-432B-B2EC-19051997670D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL.Logic", "..\CVETool.DAL\CVETool.DAL.Logic.csproj", "{0AF2442E-DC54-432B-B2EC-19051997670D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL.Interfaces", "..\CVETool.DAL.Interfaces\CVETool.DAL.Interfaces.csproj", "{36A82524-DF29-467A-B59D-8F5B63247E95}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.Utilities", "..\CVETool.Utilities\CVETool.Utilities.csproj", "{8A1F6DD2-4BA6-410A-A40F-9786DA6499ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CVETool.WebAPI", "..\CVETool.WebAPI\CVETool.WebAPI.csproj", "{8D974375-AF53-407D-8289-520E3B4E66E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.SL.WebAPI", "..\CVETool.WebAPI\CVETool.SL.WebAPI.csproj", "{8D974375-AF53-407D-8289-520E3B4E66E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,7 +7,7 @@ namespace CVETool.Interfaces
     public interface ICVEManager
     {
         public void AutoInit();
-        public string[] LoadJson();
+        public void LoadJson();
         public void CreateCVEs();
         public void SaveCVEsToDatabase();
         public List<CVE> GetAllCVEs();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T3eTwUmLe7koQv1JeuB9LKrq0cc4Ae5n+f55O8XhTEHV7HCsO33IvzIMykPk7lID/bW08n81AEay2kLiPpYvAQ==",
+  "dgSpecHash": "6dMCUtg7Bd4+opqPkT/svZE0ku4A3a8T0Ea8BqOpBnWRbcQ2IgNL8YbrybbYvvx/OUg/jj5p52P4z0abHmvcOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
+  "projectFilePath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\burak_y46me01\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\burak_y46me01\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

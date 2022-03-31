@@ -652,9 +652,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
-      "projectName": "CVETool.DAL",
-      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj",
+      "projectName": "CVETool.DAL.Logic",
+      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\CVETool.DAL.Logic.csproj",
       "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.DAL\\obj\\",
       "projectStyle": "PackageReference",

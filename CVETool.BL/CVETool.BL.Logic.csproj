@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CVETool.DAL\CVETool.DAL.csproj" />
+    <ProjectReference Include="..\CVETool.DAL\CVETool.DAL.Logic.csproj" />
     <ProjectReference Include="..\CVETool.Entities\CVETool.Entities.csproj" />
     <ProjectReference Include="..\CVETool.Interfaces\CVETool.BL.Interfaces.csproj" />
     <ProjectReference Include="..\CVETool.Utilities\CVETool.Utilities.csproj" />

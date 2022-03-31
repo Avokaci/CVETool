@@ -2,8 +2,6 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\CVETool.DAL.Interfaces.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\ref\CVETool.DAL.Interfaces.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\CVETool.DAL.Interfaces.pdb
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\CVETool.Entities.dll
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\CVETool.Entities.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug\net5.0\CVETool.DAL.Interfaces.csproj.AssemblyReference.cache
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug\net5.0\CVETool.DAL.Interfaces.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug\net5.0\CVETool.DAL.Interfaces.AssemblyInfoInputs.cache
@@ -13,3 +11,5 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug\net5.0\CVETool.DAL.Interfaces.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug\net5.0\ref\CVETool.DAL.Interfaces.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\obj\Debug\net5.0\CVETool.DAL.Interfaces.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\CVETool.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.DAL.Interfaces\bin\Debug\net5.0\CVETool.Entities.pdb

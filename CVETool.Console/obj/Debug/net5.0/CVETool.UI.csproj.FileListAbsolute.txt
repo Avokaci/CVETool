@@ -13,15 +13,11 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.BL.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.BL.Interfaces.dll
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.DAL.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.DAL.Interfaces.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.Entities.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.Utilities.dll
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.BL.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.BL.Interfaces.pdb
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.DAL.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.DAL.Interfaces.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.Entities.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.Utilities.pdb
@@ -35,3 +31,7 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\obj\Debug\net5.0
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\obj\Debug\net5.0\ref\CVETool.UI.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\obj\Debug\net5.0\CVETool.UI.pdb
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\obj\Debug\net5.0\CVETool.UI.genruntimeconfig.cache
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.BL.Logic.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.DAL.Logic.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.BL.Logic.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.Console\bin\Debug\net5.0\CVETool.DAL.Logic.pdb

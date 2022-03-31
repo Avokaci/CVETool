@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CVETool.BL\CVETool.BL.csproj" />
+    <ProjectReference Include="..\CVETool.BL\CVETool.BL.Logic.csproj" />
   </ItemGroup>
 
 </Project>

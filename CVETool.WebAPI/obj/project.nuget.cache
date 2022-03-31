@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F0dY/QSqriYxkMvRDeqSW4C22xFeD8v8csWnhGUv1RTXwOK0XE67dLf9cr9/ns/AsJ0sC1AfSHfLnoNjUIKwNg==",
+  "dgSpecHash": "e0wFSrGNyBHIHKz8Di3uT2ce6ZlHud8FBzp/G0+5obtoZJjqIMlWRAm4xmiplu/OwOIEv+GngMBVYqfmY8k3sA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\CVETool.WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.WebAPI\\CVETool.SL.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\burak_y46me01\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\burak_y46me01\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
