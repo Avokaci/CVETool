@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL.Logic", "..\CVET
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL.Interfaces", "..\CVETool.Interfaces\CVETool.BL.Interfaces.csproj", "{8AAAAA38-7DE6-4334-9FED-4642DA19717C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.Entities", "..\CVETool.Entities\CVETool.Entities.csproj", "{14EA687A-20DF-49BE-828E-8C7CB755D5A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.BL.Entities", "..\CVETool.Entities\CVETool.BL.Entities.csproj", "{14EA687A-20DF-49BE-828E-8C7CB755D5A5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CVETool.DAL.Logic", "..\CVETool.DAL\CVETool.DAL.Logic.csproj", "{0AF2442E-DC54-432B-B2EC-19051997670D}"
 EndProject

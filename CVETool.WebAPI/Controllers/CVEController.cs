@@ -33,82 +33,85 @@ namespace CVETool.WebAPI.Controllers
     {
         ICVEManager manager = CVEManager.GetInstance();
 
-        [HttpPost]
-        [Route("/autoInit")]
-        [ValidateModelState]
-        [SwaggerOperation("AutoInit")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
-        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
-        public virtual IActionResult AutoInit()
-        {
-            try
-            {
-                manager.AutoInit();
-                return new ObjectResult("Auto initialization succesfull") { StatusCode = 200 };
-            }
-            catch (Exception)
-            {
-                return new ObjectResult("Error") { StatusCode = 400 };
-            }
-        }
+        //Console App initialization only 
+        //[HttpPost]
+        //[Route("/autoInit")]
+        //[ValidateModelState]
+        //[SwaggerOperation("AutoInit")]
+        //[SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        //[SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        //public virtual IActionResult AutoInit()
+        //{
+        //    try
+        //    {
+        //        manager.AutoInit();
+        //        return new ObjectResult("Auto initialization succesfull") { StatusCode = 200 };
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new ObjectResult("Error") { StatusCode = 400 };
+        //    }
+        //}
 
-        [HttpPost]
-        [Route("/load")]
-        [ValidateModelState]
-        [SwaggerOperation("LoadJson")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
-        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
-        public virtual IActionResult LoadJson()
-        {
-            try
-            {
-                manager.LoadJson();
-                return new ObjectResult("Files succesfully loaded") { StatusCode = 200 };
-            }
-            catch (Exception)
-            {
-                return new ObjectResult("Error") { StatusCode = 400 };
-            }
-        }
+        //Console App initialization only 
+        //[HttpPost]
+        //[Route("/load")]
+        //[ValidateModelState]
+        //[SwaggerOperation("LoadJson")]
+        //[SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        //[SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        //public virtual IActionResult LoadJson()
+        //{
+        //    try
+        //    {
+        //        manager.LoadJson();
+        //        return new ObjectResult("Files succesfully loaded") { StatusCode = 200 };
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new ObjectResult("Error") { StatusCode = 400 };
+        //    }
+        //}
 
+        //Console App initialization only 
+        //[HttpPost]
+        //[Route("/create")]
+        //[ValidateModelState]
+        //[SwaggerOperation("CreateCVEs")]
+        //[SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        //[SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        //public virtual IActionResult CreateCVEs()
+        //{
+        //    try
+        //    {           
+        //        manager.CreateCVEs();
+        //        return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };           
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new ObjectResult("Error") { StatusCode = 400 };
+        //    }
+        //}
 
-        [HttpPost]
-        [Route("/create")]
-        [ValidateModelState]
-        [SwaggerOperation("CreateCVEs")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
-        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
-        public virtual IActionResult CreateCVEs()
-        {
-            try
-            {           
-                manager.CreateCVEs();
-                return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };           
-            }
-            catch (Exception)
-            {
-                return new ObjectResult("Error") { StatusCode = 400 };
-            }
-        }
-
-        [HttpPost]
-        [Route("/saveCVEsDB")]
-        [ValidateModelState]
-        [SwaggerOperation("saveCVEsDB")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
-        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
-        public virtual IActionResult SaveCVEsDB()
-        {
-            try
-            {
-                manager.SaveCVEsToDatabase();
-                return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };
-            }
-            catch (Exception)
-            {
-                return new ObjectResult("Error") { StatusCode = 400 };
-            }
-        }
+        //Console App initialization only 
+        //[HttpPost]
+        //[Route("/saveCVEsDB")]
+        //[ValidateModelState]
+        //[SwaggerOperation("saveCVEsDB")]
+        //[SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        //[SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        //public virtual IActionResult SaveCVEsDB()
+        //{
+        //    try
+        //    {
+        //        manager.SaveCVEsToDatabase();
+        //        return new ObjectResult("CVEs succesfully created") { StatusCode = 200 };
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new ObjectResult("Error") { StatusCode = 400 };
+        //    }
+        //}
 
         [HttpGet]
         [Route("/cves")]
@@ -129,26 +132,26 @@ namespace CVETool.WebAPI.Controllers
             }
         }
 
+        // Not used
+        //[HttpGet]
+        //[Route("/cve/{cveId}")]
+        //[ValidateModelState]
+        //[SwaggerOperation("GetOneCVE")]
+        //[SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
+        //[SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
+        //public virtual IActionResult GetOneCVE([FromRoute][Required] string cveId)
+        //{
+        //    try
+        //    {
+        //        CVE foundCve = manager.GetSingleCVE(cveId);              
+        //        return new ObjectResult(foundCve.ToString()) { StatusCode = 200 };
 
-        [HttpGet]
-        [Route("/cve/{cveId}")]
-        [ValidateModelState]
-        [SwaggerOperation("GetOneCVE")]
-        [SwaggerResponse(statusCode: 200, type: typeof(CVE), description: "")]
-        [SwaggerResponse(statusCode: 400, type: typeof(Error), description: "")]
-        public virtual IActionResult GetOneCVE([FromRoute][Required] string cveId)
-        {
-            try
-            {
-                CVE foundCve = manager.GetSingleCVE(cveId);              
-                return new ObjectResult(foundCve.ToString()) { StatusCode = 200 };
-
-            }
-            catch (Exception)
-            {
-                return new ObjectResult("Error") { StatusCode = 400 };
-            }
-        }
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return new ObjectResult("Error") { StatusCode = 400 };
+        //    }
+        //}
 
         [HttpGet]
         [Route("/cves/filtered/{attribute}/{value}")]

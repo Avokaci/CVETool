@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj",
-      "projectName": "CVETool.Entities",
-      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj",
+      "projectUniqueName": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.BL.Entities.csproj",
+      "projectName": "CVETool.BL.Entities",
+      "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.BL.Entities.csproj",
       "packagesPath": "C:\\Users\\burak_y46me01\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\obj\\",
       "projectStyle": "PackageReference",

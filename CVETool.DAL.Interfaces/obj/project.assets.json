@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "CVETool.Entities/1.0.0": {
+      "CVETool.BL.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/CVETool.Entities.dll": {}
+          "bin/placeholder/CVETool.BL.Entities.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CVETool.Entities.dll": {}
+          "bin/placeholder/CVETool.BL.Entities.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "CVETool.Entities/1.0.0": {
+    "CVETool.BL.Entities/1.0.0": {
       "type": "project",
-      "path": "../CVETool.Entities/CVETool.Entities.csproj",
-      "msbuildProject": "../CVETool.Entities/CVETool.Entities.csproj"
+      "path": "../CVETool.Entities/CVETool.BL.Entities.csproj",
+      "msbuildProject": "../CVETool.Entities/CVETool.BL.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "CVETool.Entities >= 1.0.0"
+      "CVETool.BL.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -53,8 +53,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj": {
-              "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.Entities.csproj"
+            "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.BL.Entities.csproj": {
+              "projectPath": "C:\\Users\\burak_y46me01\\OneDrive\\Desktop\\CVETool\\CVETool.Entities\\CVETool.BL.Entities.csproj"
             }
           }
         }

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CVETool.Entities\CVETool.Entities.csproj" />
+    <ProjectReference Include="..\CVETool.Entities\CVETool.BL.Entities.csproj" />
   </ItemGroup>
 
 </Project>
