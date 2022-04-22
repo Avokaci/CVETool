@@ -38,7 +38,7 @@ namespace CVETool.BL
             TimeSpan timeSpan = watch.Elapsed;
             logger.LogToConsoleProcessInfo("Elapsed time for pulling and loading JSON files: " + timeSpan.Hours + ":" + timeSpan.Minutes + ":" + timeSpan.Seconds);
            
-            //creating CVE objects from json files
+            //creating CVE objects from deserialized json objects
             watch = System.Diagnostics.Stopwatch.StartNew();
             CreateCVEs();
             watch.Stop();
@@ -58,7 +58,7 @@ namespace CVETool.BL
         public void LoadJson()
         {
 
-            string filepath = @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles\";
+            string filepath = @"..\..\..\..\importFiles\";
             string[] files = Directory.GetFiles(filepath, "*.json", SearchOption.AllDirectories);
 
             if (files.Length == 0)
@@ -438,8 +438,8 @@ namespace CVETool.BL
             for (int year = 2002; year < currentYear + 1; year++)
             {
                 string downloadPath = "https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-" + year + ".json.zip";
-                string zipPath = @"C:\Users\burak_y46me01\Downloads\nvdcve-1.1-" + year + ".json.zip";
-                string filePath = @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles\nvdcve-1.1-" + year + ".json";
+                string zipPath = @"..\..\..\..\importFiles\nvdcve-1.1-" + year + ".json.zip";
+                string filePath = @"..\..\..\..\importFiles\nvdcve-1.1-" + year + ".json";
 
                 WebClient webClient = new WebClient();
                 if (File.Exists(zipPath) || File.Exists(filePath))
@@ -448,7 +448,8 @@ namespace CVETool.BL
                     File.Delete(filePath);
                 }
                 webClient.DownloadFile(downloadPath, zipPath);
-                System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\importFiles");
+                System.IO.Compression.ZipFile.ExtractToDirectory(zipPath, @"..\..\..\..\importFiles");
+                File.Delete(zipPath);
                 logger.LogToConsoleObjectInfo("Pulled CVE records from year " + year);
             }
             logger.LogToConsoleProcessInfo("Finished pulling all CVE records");

@@ -19,5 +19,5 @@ C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\obj\Debug\net5.0\CVET
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\obj\Debug\net5.0\CVETool.BL.Logic.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\obj\Debug\net5.0\ref\CVETool.BL.Logic.dll
 C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\obj\Debug\net5.0\CVETool.BL.Logic.pdb
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.Entities.dll
-C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.Entities.pdb
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.BL.Entities.dll
+C:\Users\burak_y46me01\OneDrive\Desktop\CVETool\CVETool.BL\bin\Debug\net5.0\CVETool.BL.Entities.pdb
