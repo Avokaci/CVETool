@@ -19,7 +19,7 @@ namespace CVETool.UI
             manager.AutoInit();
             watch.Stop();
             TimeSpan timeSpan = watch.Elapsed;
-            Console.WriteLine("Time: {0}h {1}m {2}s", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
+            Console.WriteLine("\r\nTime: {0}h {1}m {2}s", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
 
 
         }
